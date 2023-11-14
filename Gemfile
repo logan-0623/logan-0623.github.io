@@ -20,7 +20,7 @@ group :jekyll_plugins do
     gem 'jemoji'
     gem 'unicode_utils'
     gem 'webrick'
-    gem 'mini_racer', '0.8.0'
+
 end
 group :other_plugins do
     gem 'feedjira'
