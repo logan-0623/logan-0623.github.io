@@ -8,7 +8,7 @@ group :jekyll_plugins do
     gem 'jekyll-email-protect'
     gem 'jekyll-feed'
     gem 'jekyll-get-json'
-    # gem 'jekyll-imagemagick'
+    gem 'jekyll-imagemagick'
     gem 'jekyll-jupyter-notebook'
     gem 'jekyll-link-attributes'
     gem 'jekyll-minifier'
@@ -20,6 +20,8 @@ group :jekyll_plugins do
     gem 'jemoji'
     gem 'unicode_utils'
     gem 'webrick'
+
+
 
 end
 group :other_plugins do
