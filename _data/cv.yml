@@ -14,14 +14,14 @@
     - title: Bachelor's Degree in Information and Computer Science
       institution: Xi'an Jiaotong-Liverpool University
       year: 2022
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-            
+      # description:
+      #   - Description 1.
+      #   - Description 2.
+      #   - title: Description 3.
+      #     contents:
+      #       - Sub-description 1.
+      #       - Sub-description 2.
+
     # - title: Federal teaching diploma
     #   institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
     #   year: 1900
@@ -32,9 +32,9 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Research Assistant
+    - title:    Research Assistant
       institution: Xi'an Jiaotong-Liverpool University
-      year: November 2022 – Present
+      year: 2022 – Present
       description:
         - Working on deep learning methods and multimodal fusion for regression and classification tasks in various fields.
         # - Description 2.
