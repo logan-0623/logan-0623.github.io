@@ -57,56 +57,55 @@
 .theme-switch {
     position: fixed;
     right: 20px;
-    top: 20px;
+    bottom: 20px;  /* 改为底部定位 */
     background: #fff;
-    border: 4px solid #000;
-    border-radius: 20px;
-    padding: 8px 16px;
+    border: 2px solid #000;  /* 减小边框宽度 */
+    border-radius: 50%;  /* 改为圆形 */
+    width: 40px;  /* 固定宽度 */
+    height: 40px;  /* 固定高度 */
+    padding: 0;  /* 移除内边距 */
     cursor: pointer;
-    transition: all 0.1s;
+    transition: all 0.3s ease;
     z-index: 1000;
-    color: #000;
-    box-shadow: 4px 4px 0 #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 #000;
 }
 
 /* 移动端主题切换按钮样式 */
 @media screen and (max-width: 800px) {
     .theme-switch {
-        position: fixed;
-        right: auto;
-        left: 10px;  /* 移到左侧 */
-        top: 10px;
-        padding: 6px 12px;  /* 稍微缩小按钮 */
-        border-width: 3px;  /* 减小边框宽度 */
-        font-size: 14px;  /* 减小字体大小 */
-        box-shadow: 3px 3px 0 #000;  /* 减小阴影 */
+        right: 15px;
+        bottom: 15px;
+        width: 35px;  /* 移动端稍微小一点 */
+        height: 35px;
+        border-width: 2px;
+        font-size: 14px;
+        box-shadow: 2px 2px 0 #000;
     }
 
     .theme-switch:hover {
-        box-shadow: 1px 1px 0 #000;
+        transform: scale(1.1);
     }
+}
 
-    .dark-theme .theme-switch {
-        box-shadow: 3px 3px 0 #fff;
-    }
-
-    .dark-theme .theme-switch:hover {
-        box-shadow: 1px 1px 0 #fff;
-    }
-
-    /* 确保导航按钮在右侧不受影响 */
-    .site-nav {
-        right: 15px;
-        left: auto;
-    }
+/* 深色主题按钮样式 */
+.dark-theme .theme-switch {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 2px 2px 0 #fff;
 }
 
 /* 超小屏幕适配 */
 @media screen and (max-width: 320px) {
     .theme-switch {
-        padding: 4px 10px;
+        right: 10px;
+        bottom: 10px;
+        width: 30px;
+        height: 30px;
         font-size: 12px;
-        border-width: 2px;
     }
 }
 
@@ -361,28 +360,9 @@ a:hover {
 }
 
 /* 像素风格按钮 */
-.theme-switch {
-    border: 4px solid #000;
-    background: #fff;
-    padding: 8px 16px;
-    box-shadow: 4px 4px 0 #000;
-    transform: none;
-    transition: all 0.1s;
-}
-
 .theme-switch:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 #000;
-}
-
-.dark-theme .theme-switch {
-    border-color: #fff;
-    background: #000;
-    box-shadow: 4px 4px 0 #fff;
-}
-
-.dark-theme .theme-switch:hover {
-    box-shadow: 2px 2px 0 #fff;
 }
 
 /* 响应式设计优化 */
