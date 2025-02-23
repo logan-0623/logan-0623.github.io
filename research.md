@@ -4,8 +4,6 @@ title: Research
 permalink: /research/
 ---
 
-# Research Projects
-
 ## Current Research
 
 ### Multi-modal Deletion Completion of OCT and Fundus Medical Images
