@@ -18,9 +18,9 @@
 
     {%- include footer.html -%}
 
-    <!-- 添加自定义脚本和样式 -->
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    <script src="/assets/js/custom.js"></script>
+    <!-- 使用 site.baseurl 来引用资源 -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css">
+    <script src="{{ site.baseurl }}/assets/js/custom.js"></script>
   </body>
 
 </html> 

@@ -45,4 +45,4 @@ I'm currently working on multi-modal learning and medical image analysis at the 
 - **University of Liverpool (UOL)** - Bachelor of Computing Science
 - **Xi'an Jiaotong-Liverpool University (XJTLU)** - Bachelor of Science in Information and Computing Science
 
-[View my full CV](/CS_Zihongluo.pdf) 
+[View my full CV]({{ site.baseurl }}/CS_Zihongluo.pdf) 

@@ -23,8 +23,8 @@ email: Z.Luo21@student.liverpool.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
   Computing Science student at University of Liverpool and Xi'an Jiaotong-Liverpool University.
   Research interests in machine learning, deep learning, and medical image analysis.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/your-repository-name"  # 替换为你的GitHub仓库名
+url: "https://your-username.github.io"  # 替换为你的GitHub Pages域名
 twitter_username: # leaving blank since not provided
 github_username: logan-0623 # add your GitHub username if you'd like
 
@@ -71,3 +71,20 @@ header_pages:
 # Custom assets
 custom_css: /assets/css/custom.css
 custom_js: /assets/js/custom.js
+
+# 确保资源目录被包含
+include:
+  - assets
+  - _pages
+
+# 添加资源路径
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# 确保静态资源可访问
+defaults:
+  - scope:
+      path: "assets/**/*"
+    values:
+      sitemap: false
