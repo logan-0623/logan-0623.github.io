@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+    <button class="theme-switch" onclick="toggleTheme()">
+      <span class="theme-icon">🌓</span>
+    </button>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+    <!-- 添加自定义脚本和样式 -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <script src="/assets/js/custom.js"></script>
+  </body>
+
+</html> 
