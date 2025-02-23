@@ -1,29 +1,24 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to My Personal Website"
 date:   2025-02-22 23:33:33 +0000
-categories: jekyll update
+categories: blog
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Welcome to my personal website! Here I'll share my technical insights, learning notes, and personal reflections.
 
-Jekyll requires blog post files to be named according to the following format:
+## About This Site
 
-`YEAR-MONTH-DAY-title.MARKUP`
+This website is built with Jekyll and contains the following sections:
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+- Tech Blog: Sharing programming experience and learning notes
+- Projects: Showcasing personal development projects
+- Reading Notes: Sharing book reviews and insights
+- Life Essays: Recording daily thoughts and reflections
 
-Jekyll also offers powerful support for code snippets:
+## Contact Information
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+If you have any questions or suggestions about my articles, feel free to contact me through:
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+- Email: Z.Luo21@student.liverpool.ac.uk
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Thank you for visiting! I hope you find the content here helpful.
