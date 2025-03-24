@@ -578,3 +578,28 @@ h1, h2, h3, h4, h5, h6 {
 .dark-theme .site-nav .page-link:hover {
     background-color: rgba(165, 182, 197, 0.1);  /* 深色主题下的背景色 */
 } 
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 20%; /* Optional: make the image circular */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-image {
+      margin-top: 10px;
+    }
+  }

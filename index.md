@@ -1,12 +1,19 @@
 ---
 layout: page
-title: Welcome
+title: Welcome to My Academic Page
 ---
 
-# Welcome to My Academic Page
+<!-- <div class="header-container">
+  <h1>I am a Computing Science student at the University of Liverpool and Xi'an Jiaotong-Liverpool University, with research interests in machine learning, deep learning, and medical image analysis.</h1>
+  <img src="assets/1.jpg" alt="Zihong Luo" class="profile-image">
+</div> -->
 
-<!-- 个人简介部分 -->
-I am a Computing Science student at the University of Liverpool and Xi'an Jiaotong-Liverpool University, with research interests in machine learning, deep learning, and medical image analysis.
+<div class="header-container">
+  I am a Computing Science student at the University of Liverpool and Xi'an Jiaotong-Liverpool University, with research interests in Machine Learning, Deep Learning, and Medical Image Analysis.
+  <img src="assets/1.jpg" alt="Zihong Luo" class="profile-image">
+</div>
+
+
 
 <!-- 发表文章部分 -->
 ## Recent Publications
