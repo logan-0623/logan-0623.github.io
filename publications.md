@@ -9,7 +9,7 @@ permalink: /publications/
 ### Conference Papers
 
 **PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation**
-   - *Yiheng Zhong\*, Zihong Luo\*, Chengzhi Liu, Feilong Tang, Zelin Peng, Ming Hu, Yingzhen Hu, Jionglong Su, Zongyuan Geand, Imran Razzak*
+   - *Yiheng Zhong\*, **Zihong Luo**\*, Chengzhi Liu, Feilong Tang, Zelin Peng, Ming Hu, Yingzhen Hu, Jionglong Su, Zongyuan Geand, Imran Razzak*
    - The 28th International Conference on Medicak Image Computing and Computer Assisted Intervention (MICCAI2025)
    - [Paper Link](https://arxiv.org/abs/2503.18227)
 
