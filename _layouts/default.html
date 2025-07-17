@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
-
   <style>
     body.fade { opacity: 0; transition: opacity 0.5s; }
     body.fade.fade-in { opacity: 1; }
@@ -16,22 +15,18 @@
       backdrop-filter: blur(4px); transition: opacity 0.3s;
     }
     .loader.hidden { opacity: 0; pointer-events: none; }
-    #transition-bar { width: 60vw; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #934B43, #b4dced 60%); animation: loadingBar 1s infinite alternate; }
-    @keyframes loadingBar { 0% { width: 30vw; } 100% { width: 60vw; } }
-    /* 主题按钮等样式请用你自己的 custom.css 覆盖，减少冗余 */
+    #transition-bar { width: 60vw; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #934B43, #b4dced 60%); }
+    /* 可选：transition-bar的动画也可以全交给js控制 */
   </style>
-
 </head>
 <body>
-  <!-- Loading 动画 -->
+  <!-- Loader只写一份，不要重复！-->
   <div class="loader hidden" id="page-loader">
     <div id="page-brush"></div>
     <div id="transition-bar"></div>
-</div>
+  </div>
 
-
-
-  <!-- 主题切换按钮 -->
+  <!-- 主题切换按钮等其它组件不变 -->
   <button class="theme-switch" onclick="toggleTheme()">
     <span class="theme-icon">🎴</span>
   </button>
@@ -39,133 +34,21 @@
   <!-- 平滑滚动主容器 -->
   <div data-scroll-container>
     {%- include header.html -%}
-
     <main class="page-content" aria-label="Content" data-scroll-section>
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
-
     {%- include footer.html -%}
   </div>
 
-  <!-- JS: 依赖顺序不能乱 -->
+  <!-- 保持其它依赖的js -->
   <script src="{{ '/assets/js/gsap.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/ScrollTrigger.js' | relative_url }}"></script>
+  <!-- <script src="{{ '/assets/js/ScrollTrigger.js' | relative_url }}"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <!-- 移除原来进度条/loader动画的js逻辑，不要重复 -->
+  <!-- 保留 transition.js 作为唯一过渡动画控制 -->
   <script src="{{ '/assets/js/transition.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
-  
-  <script>
-    // 页面淡入 + 跳转加载动画
-    document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("fade-in");
-    const links = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"])');
-
-    links.forEach(link => {
-      link.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
-        if (!href || href.startsWith("http")) return;
-        e.preventDefault();
-        showTransitionBar(); // 启动进度条动画
-        document.body.classList.remove("fade-in");
-        setTimeout(() => { window.location.href = href; }, 1600); // 动画时间 > timeline
-      });
-    });
-  });
-
-
-    // Locomotive Scroll + GSAP ScrollTrigger 联动
-    window.addEventListener('load', () => {
-      const scrollContainer = document.querySelector('[data-scroll-container]');
-      const locoScroll = new LocomotiveScroll({
-        el: scrollContainer,
-        smooth: true,
-        multiplier: 1.1,
-        smoothMobile: true
-      });
-
-      // ======= 关键：GSAP-ScrollTrigger集成 =======
-      gsap.registerPlugin(ScrollTrigger);
-
-      // scrollerProxy 必须放在 locomotive 初始化后
-      ScrollTrigger.scrollerProxy(scrollContainer, {
-        scrollTop(value) {
-          return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-          return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-        },
-        pinType: scrollContainer.style.transform ? "transform" : "fixed"
-      });
-
-      // 刷新 ScrollTrigger/locomotive
-      locoScroll.on("scroll", ScrollTrigger.update);
-      ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-      ScrollTrigger.refresh();
-
-      // === 例子：滚动动画，按需定制 ===
-      gsap.utils.toArray('.wrapper').forEach(el => {
-        gsap.fromTo(el, {opacity: 0, y: 80}, {
-          opacity: 1, y: 0, duration: 1.1,
-          scrollTrigger: {
-            trigger: el,
-            scroller: scrollContainer,
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: 1,
-            markers: false
-          }
-        });
-      });
-    });
-
-    // ===== Loading Progress Bar Timeline =====
-  let tl = gsap.timeline({
-    paused: true,
-    repeat: 1,         // 动画来回一次（两次完整循环），可改为 repeat: 2
-    yoyo: true,
-    defaults: {
-      duration: 0.8,
-      ease: "power1.inOut"
-    },
-    onComplete: () => {
-      hideTransitionBar();
-    }
-  });
-
-  // 宽度动画从 0% 到 100%
-  tl.to("#transition-bar", { width: "100%" });
-
-  // 显示并播放进度条动画
-  function showTransitionBar() {
-    const loader = document.getElementById("page-loader");
-    const bar = document.getElementById("transition-bar");
-    if (!bar) return;
-    bar.style.opacity = "1";
-    bar.style.width = "0%";
-    loader.classList.remove("hidden");
-    tl.restart();
-  }
-
-  // 隐藏进度条动画和 loader
-  function hideTransitionBar() {
-    const bar = document.getElementById("transition-bar");
-    if (!bar) return;
-    gsap.to(bar, {
-      opacity: 0,
-      duration: 0.3,
-      onComplete: () => {
-        bar.style.width = "0%";
-        bar.style.opacity = "";
-        document.getElementById('page-loader')?.classList.add('hidden');
-      }
-    });
-  }
-
-
-
-  </script>
 </body>
 </html>
-
