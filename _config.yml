@@ -88,3 +88,6 @@ defaults:
       path: "assets/**/*"
     values:
       sitemap: false
+
+custom_css: /assets/css/custom.css
+custom_js: /assets/js/custom.js

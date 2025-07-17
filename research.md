@@ -23,8 +23,8 @@ This research focuses on developing advanced techniques for handling incomplete 
 - [Incomplete Modality Disentangled Representation for Ophthalmic Disease Grading and Diagnosis](https://openreview.net/forum?id=IlJw8PAYYS)
 
 ### Interpretable Machine Learning for Medical Diagnosis
-*2024*  
-**Tsinghua University School of Medicine**  
+*January 2024 - March 2024*  
+**Tongji University School of Medicine, Shanghai, China**  
 *Supervised by Professor Xiaoyun Xie*
 
 This project focuses on developing interpretable ML models for early detection of diabetic complications.
@@ -34,6 +34,9 @@ This project focuses on developing interpretable ML models for early detection o
 - Implemented advanced feature engineering techniques
 - Utilized SHAP values for identifying critical risk factors
 - Published findings in BMC Medical Informatics and Decision Making
+
+**Contributions:**
+Contributed to the development of the methodology.
 
 **Related Publication:**
 - [Read the full paper](https://link.springer.com/article/10.1186/s12911-024-02595-z)

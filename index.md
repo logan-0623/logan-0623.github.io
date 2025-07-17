@@ -14,10 +14,9 @@ title: Welcome to My Academic Page
 </div>
 
 
-
 <!-- 发表文章部分 -->
 ## Recent Publications
-- **[Processing in MICCAI 2025]** PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation
+- **[ARXIV ]** PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation
 - **[AAAI 2025]** Incomplete Modality Disentangled Representation for Ophthalmic Disease Grading and Diagnosis
 - **[ICANN 2024]** ARIF: An Adaptive Attention-Based Cross-Modal Representation Integration Framework
 - **[ICPR 2024]** MTSA-SNN: A Multi-modal Time Series Analysis Model Based on Spiking Neural Network

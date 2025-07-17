@@ -1,0 +1,34 @@
+#transition-bar {
+    position: fixed;
+    left: 0; top: 0;
+    width: 0%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #934B43, #b4dced 60%);
+    box-shadow: 0 2px 8px 0 #3b82f644;
+    z-index: 10000;
+    transition: none;
+    opacity: 1;
+  }
+
+#page-brush {
+    position: fixed;
+    top: -40vh;    /* 使得刷子一开始在右上方外侧 */
+    right: -40vw;
+    width: 200vw;
+    height: 40vh;  /* 适当调整刷子的宽度 */
+    background: linear-gradient(135deg, #e6eaf7 0%, #b3c5ec 100%);
+    box-shadow: 0 4px 48px 0 rgba(50,90,180,0.11);
+    z-index: 99999;
+    border-radius: 48px;
+    transform: rotate(45deg);
+    opacity: 0.93;
+    pointer-events: none;
+    transition: background 0.25s;
+    will-change: transform, opacity;
+}
+
+.dark-theme #page-brush {
+    background: linear-gradient(135deg, #203059 0%, #465c8f 100%);
+    opacity: 0.86;
+}
