@@ -51,10 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const href = this.getAttribute("href");
         if (!href || href.startsWith("http")) return;
         e.preventDefault();
-        await openTransitionBar();
-        window.location.href = href; // 跳转后新页面自己关闭条
+        playLoadingBar(); // 不等刷子动画，直接开条
+        // 刷子动画和进度条动画一起开始
+        const p1 = new Promise(resolve => playBrushTransition(resolve));
+        
+    
+        // 跳转在刷子动画结束后（可自定义是否要等进度条动画）
+        p1.then(() => {
+          setTimeout(() => {
+            window.location.href = href;
+          }, 1000); // 等 loading bar 动画也差不多完事
+        });
       });
     });
+    
   });
 
 // 刷子动画（配合 loading 调用）
