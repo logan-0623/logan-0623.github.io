@@ -50,6 +50,10 @@ header_pages:
   - about.md
   - Blog.md
 
+---
+toc: true
+---
+
 # Custom assets
 custom_css: /assets/css/custom.css
 custom_js: /assets/js/custom.js
