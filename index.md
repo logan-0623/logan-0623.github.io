@@ -4,7 +4,7 @@ title: 我的主页
 ---
 
 <div class="home">
-  <h1>欢迎来到我的主页！</h1>
-  <p>这里是个人简介、站点介绍等内容。</p>
-  <a href="/blog/">我的博客</a>
+<h1>Welcome to my homepage! </h1>
+<p>Here is my personal profile, site introduction, etc. </p>
+<a href="/blog/">My blog</a>
 </div>
