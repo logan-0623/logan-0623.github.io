@@ -1,4 +1,5 @@
 
+var rellax = new Rellax('.rellax');
 
 // 页面加载时，恢复用户选择的主题
 window.addEventListener('DOMContentLoaded', function() {

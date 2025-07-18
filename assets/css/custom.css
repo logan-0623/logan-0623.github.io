@@ -4,7 +4,7 @@
     --primary-dark: #2457b3;
     --bg-color: #f6f8fb;
     --bg-color-hover: #e9f2ff;
-    --bg-content: #fff;
+    --bg-content: rgba(255,255,255,0.95);
     --border-color: rgba(40,80,160,0.06);
     --text-color: #202e43;
     --text-secondary: #4c627a;
@@ -13,7 +13,7 @@
     --primary: #78aaff;
     --primary-dark: #c1d6f7;
     --bg-color: #181e2a;
-    --bg-content: rgba(22,28,44,0.92);
+    --bg-content: rgba(23, 49, 118, 0.92);
     --border-color: rgba(80,120,210,0.09);
     --text-color: #d3e3ff;
     --text-secondary: #91aacc;
@@ -65,6 +65,31 @@ body {
     0%   { transform: scale(1); opacity: 0.8; }
     100% { transform: scale(2.5); opacity: 0; }
 }
+
+
+
+.parallax-img-bg {
+width: 100vw;
+height: 100vh;
+object-fit: cover;
+opacity: 0.15;      /* 透明度看自己审美，可以更低 */
+pointer-events: none;
+display: block;
+}
+  
+.dark-theme .parallax-img-bg {
+    filter: brightness(0.7) grayscale(0.3);
+    opacity: 0.28;
+  }
+  
+  .big-parallax-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;   /* 背景，别太高 */
+    pointer-events: none;
+  }
 
 /* ---------- 主题切换按钮 ---------- */
 .theme-switch {

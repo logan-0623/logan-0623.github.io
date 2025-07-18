@@ -21,10 +21,13 @@
 </head>
 <body>
   <div id="page-brush"></div>
-  <!-- Loader-->
-  <!-- <div class="loader hidden" id="page-loader">
-    <div id="page-brush"></div>
-  </div> -->
+
+  <div class="rellax big-parallax-bg" data-rellax-speed="4" style="z-index:2;">
+    <img src="/assets/mountain.jpg" class="parallax-img-bg" ">
+    <img src="/assets/mountain2.jpg" class="parallax-img-bg" ">
+  </div>
+
+  
 
   <!-- 主题切换按钮等其它组件不变 -->
   <button class="theme-switch" onclick="toggleTheme()">
@@ -36,18 +39,27 @@
     {%- include header.html -%}
     <main class="page-content" aria-label="Content" data-scroll-section>
       <div class="wrapper">
-        {{ content }}
+        <div style="position:relative; z-index:10;">
+          {{ content }}
+        </div>
       </div>
     </main>
     {%- include footer.html -%}
   </div>
 
+  
+  
+
   <!-- 保持其它依赖的js -->
   <script src="{{ '/assets/js/gsap.js' | relative_url }}"></script>
   <!-- <script src="{{ '/assets/js/ScrollTrigger.js' | relative_url }}"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-  <!-- 移除原来进度条/loader动画的js逻辑，不要重复 -->
-  <!-- 保留 transition.js 作为唯一过渡动画控制 -->
+  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+
+  <script>
+    var rellax = new Rellax('.rellax');
+  </script>
+
   <script src="{{ '/assets/js/transition.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
 </body>
