@@ -4,4 +4,9 @@ title: Blog
 permalink: /blog/
 ---
 
-## Current Blog
+[Robotics](/blog/robotics/)
+
+[Multiagent](/blog/multiagent/)
+
+[Multimodality](/blog/multimodality/)
+
