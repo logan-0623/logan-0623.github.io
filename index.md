@@ -3,12 +3,13 @@ layout: default
 title: Home Page
 ---
 
-<div class="home">
-<h1>Welcome to my homepage! </h1>
-<p>Here is my personal profile, site introduction, etc. </p>
-<a href="/blog/">My blog</a>
+## Welcome to my homepage! 
 
-<p>Here is my publication. </p>
-<a href="/publications/">My Publications</a>
+### Here is my personal profile, site introduction, etc.
+- [My blog](/blog/)
 
-</div>
+### Here is my publications.
+- [My publications](/publications/)
+
+
+
