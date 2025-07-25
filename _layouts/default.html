@@ -72,10 +72,15 @@
   <!-- 页面过渡刷子 -->
   <div id="page-brush"></div>
 
+  <!-- 波浪交互背景 -->
+  <a-waves>
+    <svg class="js-svg"></svg>
+  </a-waves>
+
   <!-- 视差背景层 -->
-  <div class="rellax big-parallax-bg" data-rellax-speed="-10">
-    <!-- <img src="/assets/mountain.jpg" class="parallax-img-bg" alt="Background mountain 1"> -->
-    <img src="/assets/mountain2.jpg" class="parallax-img-bg" alt="Background mountain 1">
+  <div class="rellax big-parallax-bg" data-rellax-speed="-4">
+    <img src="/assets/mountain.jpg" class="parallax-img-bg" alt="Background mountain 1">
+    <img src="/assets/mountain2.jpg" class="parallax-img-bg" alt="Background mountain 2">
   </div>
 
   <!-- 主题切换按钮 -->
@@ -102,7 +107,9 @@
   </div>
 
   <!-- JavaScript 依赖 -->
+  <script src="{{ '/assets/js/waves.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/gsap.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/drawSVG.js' | relative_url }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
 

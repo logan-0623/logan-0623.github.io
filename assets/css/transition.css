@@ -1,24 +1,216 @@
+/* ---------- 波浪交互组件样式 ---------- */
+a-waves {
+  --x: -0.5rem;
+  --y: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
 
+a-waves::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--wave-cursor-color, #160000);
+  border-radius: 50%;
+  transform: translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0);
+  will-change: transform;
+  content: "";
+  transition: background var(--transition-normal);
+}
 
+a-waves svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+a-waves svg path {
+  fill: none;
+  stroke: var(--wave-line-color, #160000);
+  stroke-width: 1px;
+  transition: stroke var(--transition-normal);
+}
+
+/* 深色主题下的波浪样式 */
+.dark-theme a-waves::before {
+  background: var(--wave-cursor-color, #dc2626);
+}
+
+.dark-theme a-waves svg path {
+  stroke: var(--wave-line-color, #dc2626);
+}
+
+/* ---------- LOGAN 开场动画 ---------- */
+.entrance-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.entrance-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.entrance-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logan-svg {
+  width: 600px;
+  height: 200px;
+  max-width: 90vw;
+}
+
+/* LOGAN 字母路径样式 */
+.logan-letter {
+  fill: none;
+  stroke: #88CE02;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .logan-svg {
+    width: 400px;
+    height: 150px;
+  }
+  
+  .logan-letter {
+    stroke-width: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .logan-svg {
+    width: 300px;
+    height: 120px;
+  }
+  
+  .logan-letter {
+    stroke-width: 2;
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .entrance-title {
+    font-size: 2rem;
+  }
+  
+  .entrance-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- 页面过渡刷子效果 ---------- */
 #page-brush {
     position: fixed;
-    top: -100vh;       /* 加大隐藏距离 */
-    right: -150vw;    /* 加大隐藏距离 */
+    top: -100vh;
+    right: -150vw;
     width: 400vw;
-    height: 40vh;  /* 适当调整刷子的宽度 */
+    height: 40vh;
     background: linear-gradient(135deg, #e6eaf7 0%, #b3c5ec 100%);
-    box-shadow: 0 4px 48px 0 rgba(50,90,180,0.11);
+    box-shadow: 0 4px 48px 0 rgba(50, 90, 180, 0.11);
     z-index: 99999;
     border-radius: 48px;
     transform: rotate(45deg);
     opacity: 0;
     pointer-events: none;
-    transition: background 0.25s;
+    transition: background 0.25s ease;
     will-change: transform, opacity;
-    display: block;       /* 用 opacity 隐藏，不要用 display:none */
+    display: block;
 }
 
 .dark-theme #page-brush {
     background: linear-gradient(135deg, #203059 0%, #465c8f 100%);
-    opacity: 0.86;
+}
+
+/* ---------- 页面加载器样式 ---------- */
+.loader {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#transition-bar {
+    width: 60vw;
+    max-width: 400px;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #3682ff, #78aaff);
+    overflow: hidden;
+    position: relative;
+}
+
+#transition-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ---------- 页面淡入效果 ---------- */
+.page-content {
+    min-height: 100vh;
+}
+
+/* 可选：为页面切换添加淡入淡出效果 */
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
