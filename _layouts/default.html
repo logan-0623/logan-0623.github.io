@@ -4,62 +4,339 @@
   {%- include head.html -%}
   <link rel="stylesheet" href="{{ '/assets/css/transition.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* body.fade { opacity: 0; transition: opacity 0.5s; } */
-    /* body.fade.fade-in { opacity: 1; } */
+    /* 页面加载器样式 */
     .loader {
-      position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(10,10,10,0.6); display: flex; justify-content: center; align-items: center;
-      backdrop-filter: blur(4px); transition: opacity 0.3s;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    .loader.hidden { opacity: 0; pointer-events: none; }
-    #transition-bar { width: 60vw; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #934B43, #b4dced 60%); }
-    /* 可选：transition-bar的动画也可以全交给js控制 */
+    
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    
+    #transition-bar {
+      width: 60vw;
+      max-width: 400px;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #3682ff, #78aaff);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    #transition-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: shimmer 1.5s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    /* 预防闪烁 */
+    .page-content {
+      min-height: 100vh;
+    }
   </style>
 </head>
-<body>
-  <div id="page-brush"></div>
 
-  <div class="rellax big-parallax-bg" data-rellax-speed="4" style="z-index:2;">
-    <img src="/assets/mountain.jpg" class="parallax-img-bg" ">
-    <img src="/assets/mountain2.jpg" class="parallax-img-bg" ">
+<body>
+  <!-- 页面加载器 -->
+  <div class="loader" id="page-loader">
+    <div id="transition-bar"></div>
   </div>
 
-  
+  <!-- 页面过渡刷子 -->
+  <div id="page-brush"></div>
 
-  <!-- 主题切换按钮等其它组件不变 -->
-  <button class="theme-switch" onclick="toggleTheme()">
+  <!-- 视差背景层 -->
+  <div class="rellax big-parallax-bg" data-rellax-speed="-10">
+    <!-- <img src="/assets/mountain.jpg" class="parallax-img-bg" alt="Background mountain 1"> -->
+    <img src="/assets/mountain2.jpg" class="parallax-img-bg" alt="Background mountain 1">
+  </div>
+
+  <!-- 主题切换按钮 -->
+  <button class="theme-switch" onclick="toggleTheme()" aria-label="切换主题">
     <span class="theme-icon">🎴</span>
   </button>
 
   <!-- 平滑滚动主容器 -->
   <div data-scroll-container>
+    <!-- 页眉 -->
     {%- include header.html -%}
+    
+    <!-- 主要内容 -->
     <main class="page-content" aria-label="Content" data-scroll-section>
       <div class="wrapper">
-        <div style="position:relative; z-index:10;">
+        <div style="position: relative; z-index: 10;">
           {{ content }}
         </div>
       </div>
     </main>
+    
+    <!-- 页脚 -->
     {%- include footer.html -%}
   </div>
 
-  
-  
-
-  <!-- 保持其它依赖的js -->
+  <!-- JavaScript 依赖 -->
   <script src="{{ '/assets/js/gsap.js' | relative_url }}"></script>
-  <!-- <script src="{{ '/assets/js/ScrollTrigger.js' | relative_url }}"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
 
   <script>
-    var rellax = new Rellax('.rellax');
+    // 初始化脚本
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化视差效果
+      if (typeof Rellax !== 'undefined') {
+        var rellax = new Rellax('.rellax', {
+          speed: -7,
+          center: false,
+          wrapper: null,
+          round: true,
+          vertical: true,
+          horizontal: false
+        });
+      }
+
+      // 初始化平滑滚动
+      if (typeof LocomotiveScroll !== 'undefined') {
+        const scroll = new LocomotiveScroll({
+          el: document.querySelector('[data-scroll-container]'),
+          smooth: true,
+          multiplier: 1,
+          class: 'is-revealed'
+        });
+
+        // 更新视差效果当滚动时
+        scroll.on('scroll', () => {
+          if (rellax) rellax.refresh();
+        });
+      }
+
+      // 初始化页面过渡效果
+      initPageTransitions();
+
+      // 隐藏加载器
+      setTimeout(() => {
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+          loader.classList.add('hidden');
+        }
+      }, 500);
+    });
+
+    // 主题切换函数
+    function toggleTheme() {
+      const body = document.body;
+      const isDark = body.classList.contains('dark-theme');
+      
+      if (isDark) {
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+      }
+      
+      // 更新主题图标
+      const themeIcon = document.querySelector('.theme-icon');
+      if (themeIcon) {
+        themeIcon.textContent = isDark ? '🎴' : '🌙';
+      }
+    }
+
+    // 初始化主题
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const shouldUseDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      
+      if (shouldUseDark) {
+        document.body.classList.add('dark-theme');
+        const themeIcon = document.querySelector('.theme-icon');
+        if (themeIcon) themeIcon.textContent = '🌙';
+      }
+    })();
+
+    // 性能优化：在页面不可见时暂停动画
+
+    // 鼠标粒子效果
+    (function initCursorEffects() {
+      let trails = [];
+      const maxTrails = 8;
+      
+      function createTrail(x, y) {
+        const trail = document.createElement('div');
+        trail.className = 'cursor-trail active';
+        trail.style.left = x + 'px';
+        trail.style.top = y + 'px';
+        document.body.appendChild(trail);
+        
+        trails.push(trail);
+        
+        // 移除多余的轨迹
+        if (trails.length > maxTrails) {
+          const oldTrail = trails.shift();
+          if (oldTrail && oldTrail.parentNode) {
+            oldTrail.parentNode.removeChild(oldTrail);
+          }
+        }
+        
+        // 淡出效果
+        setTimeout(() => {
+          trail.classList.remove('active');
+          setTimeout(() => {
+            if (trail.parentNode) {
+              trail.parentNode.removeChild(trail);
+            }
+          }, 150);
+        }, 100);
+      }
+      
+      function createParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        
+        // 随机方向
+        const randomX = (Math.random() - 0.5) * 60;
+        const randomY = (Math.random() - 0.5) * 60;
+        particle.style.setProperty('--random-x', randomX + 'px');
+        particle.style.setProperty('--random-y', randomY + 'px');
+        
+        document.body.appendChild(particle);
+        
+        // 移除粒子
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+          }
+        }, 800);
+      }
+      
+      // 鼠标移动事件
+      let lastMoveTime = 0;
+      document.addEventListener('mousemove', function(e) {
+        const now = Date.now();
+        if (now - lastMoveTime > 50) { // 节流
+          createTrail(e.clientX, e.clientY);
+          lastMoveTime = now;
+        }
+      });
+      
+      // 点击事件
+      let lastClickTime = 0;
+      document.addEventListener('click', function(e) {
+        const now = Date.now();
+        if (now - lastClickTime > 200) { // 防止重复点击
+          createParticle(e.clientX, e.clientY);
+          lastClickTime = now;
+        }
+      });
+    })();
+
+    // 页面过渡刷子动画
+    function playBrushTransition(onComplete) {
+      const brush = document.getElementById('page-brush');
+      if (!brush) {
+        console.error('找不到#page-brush');
+        if (onComplete) onComplete();
+        return;
+      }
+      
+      brush.style.opacity = "1";
+      brush.style.display = "block";
+      
+      if (typeof gsap !== 'undefined') {
+        gsap.set(brush, { x: 0, y: 0 });
+        gsap.fromTo(brush, 
+          { x: 0, y: 0 },
+          {
+            x: "-120vw",
+            y: "120vh",
+            duration: 1.1,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsap.to(brush, {
+                opacity: 0,
+                duration: 0.1,
+                onComplete: () => {
+                  brush.style.display = "block";
+                  if (onComplete) onComplete();
+                }
+              });
+            }
+          }
+        );
+      } else {
+        // 如果GSAP不可用，使用CSS动画作为后备
+        brush.style.transition = 'transform 1.1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.1s';
+        brush.style.transform = 'rotate(45deg) translate(-120vw, 120vh)';
+        
+        setTimeout(() => {
+          brush.style.opacity = "0";
+          setTimeout(() => {
+            if (onComplete) onComplete();
+          }, 100);
+        }, 1100);
+      }
+    }
+
+    // 页面切换链接处理
+    function initPageTransitions() {
+      const links = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"]):not([href^="http"]):not([href^="mailto"]):not([href^="tel"])');
+      
+      links.forEach(link => {
+        link.addEventListener("click", function(e) {
+          const href = this.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#") || href.startsWith("mailto") || href.startsWith("tel")) {
+            return; // 让这些链接正常工作
+          }
+          
+          e.preventDefault();
+          playBrushTransition(() => {
+            setTimeout(() => {
+              window.location.href = href;
+            }, 50); // 短暂延迟确保动画完成
+          });
+        });
+      });
+    }
+    document.addEventListener('visibilitychange', function() {
+      const trails = document.querySelectorAll('.cursor-trail, .particle');
+      if (document.hidden) {
+        trails.forEach(el => el.style.animationPlayState = 'paused');
+      } else {
+        trails.forEach(el => el.style.animationPlayState = 'running');
+      }
+    });
   </script>
 
+  <!-- 自定义脚本 -->
   <script src="{{ '/assets/js/transition.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
 </body>
