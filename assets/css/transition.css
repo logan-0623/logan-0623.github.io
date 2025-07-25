@@ -92,6 +92,44 @@ a-waves svg path {
   stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
+  opacity: 0;
+  animation: drawLetter 4s ease-in-out forwards;
+}
+
+/* 每个字母的动画延迟 */
+#letter-l { animation-delay: 0s; }
+#letter-o1 { animation-delay: 0.2s; }
+#letter-g { animation-delay: 0.4s; }
+#letter-a { animation-delay: 0.6s; }
+#letter-n { animation-delay: 0.8s; }
+
+/* 字母绘制动画 */
+@keyframes drawLetter {
+  0% {
+    opacity: 1;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: #88CE02;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    stroke-dashoffset: 0;
+    stroke: #88CE02;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    stroke: #ffffff;
+    transform: scale(0.8) rotate(180deg);
+  }
+  75% {
+    stroke: #78aaff;
+    transform: scale(1.2) rotate(360deg);
+  }
+  100% {
+    stroke: #78aaff;
+    transform: scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* 响应式调整 */

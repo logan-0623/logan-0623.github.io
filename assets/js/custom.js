@@ -41,76 +41,18 @@ function initEntranceAnimation() {
     
     document.body.appendChild(overlay);
     
-    // 等待GSAP加载完成
-    function startAnimation() {
-        if (typeof gsap !== 'undefined') {
-            // GSAP 动画序列
-            const shapes = "#letter-l, #letter-o1, #letter-g, #letter-a, #letter-n";
-            const tl = gsap.timeline({
-                onComplete: () => {
-                    // 动画完成后隐藏覆盖层
-                    setTimeout(() => {
-                        overlay.classList.add('hidden');
-                        setTimeout(() => {
-                            if (overlay.parentNode) {
-                                overlay.parentNode.removeChild(overlay);
-                            }
-                            sessionStorage.setItem('entranceShown', 'true');
-                        }, 800);
-                    }, 500);
-                }
-            });
-            
-            // 动画序列（基于你的示例）
-            tl.fromTo(shapes, 
-                {drawSVG: "100%"}, 
-                {duration: 1, drawSVG: "50% 50%", stagger: 0.1}
-            )
-            .fromTo(shapes, 
-                {drawSVG: "0%"}, 
-                {duration: 0.1, drawSVG: "10%", immediateRender: false}, 
-                "+=0.1"
-            )
-            .to(shapes, 
-                {duration: 1, drawSVG: "90% 100%", stagger: 0.5}
-            )
-            .to(shapes, 
-                {
-                    duration: 1, 
-                    rotation: 360, 
-                    scale: 0.5, 
-                    drawSVG: "100%", 
-                    stroke: "white", 
-                    strokeWidth: 6, 
-                    transformOrigin: "50% 50%"
-                }
-            )
-            .to(shapes, 
-                {
-                    duration: 0.5, 
-                    stroke: "#78aaff", 
-                    scale: 1.5, 
-                    opacity: 0, 
-                    stagger: 0.2
-                }
-            );
-            
-        } else {
-            // 如果 GSAP 不可用，使用简单的 CSS 动画
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-                setTimeout(() => {
-                    if (overlay.parentNode) {
-                        overlay.parentNode.removeChild(overlay);
-                    }
-                    sessionStorage.setItem('entranceShown', 'true');
-                }, 800);
-            }, 3000);
-        }
-    }
-    
-    // 延迟开始动画以确保页面加载完成
-    setTimeout(startAnimation, 500);
+    // 5秒后隐藏动画（动画持续时间 + 缓冲时间）
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+        
+        // 淡出完成后移除元素
+        setTimeout(() => {
+            if (overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
+            }
+            sessionStorage.setItem('entranceShown', 'true');
+        }, 800);
+    }, 5000);
 }
 
 // 初始化视差效果
