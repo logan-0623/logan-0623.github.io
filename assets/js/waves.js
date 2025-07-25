@@ -341,9 +341,9 @@ class AWaves extends HTMLElement {
     // 鼠标角度
     mouse.a = Math.atan2(dy, dx);
 
-    // 动画
-    this.style.setProperty('--x', `${mouse.sx}px`);
-    this.style.setProperty('--y', `${mouse.sy}px`);
+    // 不再设置CSS变量，因为我们禁用了::before指示器
+    // this.style.setProperty('--x', `${mouse.sx}px`);
+    // this.style.setProperty('--y', `${mouse.sy}px`);
 
     this.movePoints(time);
     this.drawLines();

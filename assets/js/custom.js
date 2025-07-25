@@ -105,6 +105,7 @@ function initTheme() {
 function initCursorFollower() {
     const follower = document.createElement('div');
     follower.className = 'cursor-follower';
+    follower.id = 'main-cursor-follower'; // 添加ID以便识别
     document.body.appendChild(follower);
     
     let mouseX = 0;
@@ -202,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 性能优化：页面不可见时暂停动画
 document.addEventListener('visibilitychange', function() {
-    const follower = document.querySelector('.cursor-follower');
+    const follower = document.querySelector('#main-cursor-follower');
     if (document.hidden && follower) {
         follower.style.display = 'none';
     } else if (follower) {

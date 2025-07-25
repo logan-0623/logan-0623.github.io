@@ -13,18 +13,9 @@ a-waves {
   z-index: 1;
 }
 
+/* 禁用波浪组件自带的鼠标指示器 */
 a-waves::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--wave-cursor-color, #160000);
-  border-radius: 50%;
-  transform: translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0);
-  will-change: transform;
-  content: "";
-  transition: background var(--transition-normal);
+  display: none !important;
 }
 
 a-waves svg {
@@ -41,12 +32,8 @@ a-waves svg path {
 }
 
 /* 深色主题下的波浪样式 */
-.dark-theme a-waves::before {
-  background: var(--wave-cursor-color, #dc2626);
-}
-
 .dark-theme a-waves svg path {
-  stroke: var(--wave-line-color, #dc2626);
+  stroke: var(--wave-line-color, #78aaff);
 }
 
 /* ---------- LOGAN 开场动画 ---------- */
