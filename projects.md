@@ -4,11 +4,9 @@ title: Projects
 permalink: /projects/
 ---
 
-# Projects & Reproductions
+## Projects & Reproductions
 
-Here are some notable projects I've worked on and research implementations I've reproduced.
-
-## Research Reproductions
+Here are some projects I've worked on and research implementations I've reproduced.
 
 ### LeRobot SO101 Robotic Arm Control
 *2025*
@@ -21,23 +19,34 @@ Here are some notable projects I've worked on and research implementations I've 
   - Real-time robotic arm control and data collection
 - **Hardware:** SO101 robotic arms (leader & follower), dual cameras (front & wrist)
 - **Achievements:** Successfully recorded 50 test episodes with synchronized dual-camera data
-- [View Documentation →](https://huggingface.co/docs/lerobot/so101) | [GitHub →](https://github.com/huggingface/lerobot)
+- [Project Document →](/lerobot-so101/)
+- [View Documentation →](https://huggingface.co/docs/lerobot/so101) 
+- [GitHub →](https://github.com/huggingface/lerobot)
 
-### Multi-modal Medical Image Analysis
-*2024*
-- **Description:** Reproduced state-of-the-art methods for OCT and Fundus image analysis
-- **Technologies:** PyTorch, OpenCV, NumPy
-- **Key Features:** Feature disentanglement, cross-modal learning
-- [View Code →](https://github.com/logan-0623/project-link)
 
-### Spiking Neural Networks for Time Series
-*2023*
-- **Description:** Implementation of SNN-based models for heart rate anomaly detection
-- **Technologies:** PyTorch, SpikingJelly
-- **Key Features:** Multi-modal pulse peak network, efficient computation
-- [View Code →](https://github.com/logan-0623/project-link)
 
-## Personal Projects
+### Wheel-legged Robot Reproduction Project
+*2025*
+- **Description:** Mathematical modeling and control algorithm implementation for wheel-legged robot locomotion
+- **Technologies:** C++, Arduino, robot kinematics, control theory, PID control
+- **Key Features:**
+  - Forward and inverse kinematics mathematical modeling
+  - Real-time control loop implementation in C++
+  - Dual-mode balance control (wheel + leg stabilization)
+  - IMU-based attitude feedback control
+  - Teleoperation with RC controller integration
+- **Hardware:** wheel-legged platform, IMU sensors, servo motors, BLDC motors
+- **Technical Achievements:**
+  - Implemented complete inverse kinematics solver for 5-link leg mechanism
+  - Developed cascaded PID control for wheel balancing (speed + angle loops)
+  - Real-time sensor fusion and multi-modal control integration
+  - Achieved stable teleoperated locomotion with attitude stabilization
+- **Learning Focus:**
+  - Robot kinematics mathematical foundations
+  - Control algorithm design and implementation
+  - Real-time embedded systems programming
+  - Sensor fusion and feedback control systems
+- [Project Document →](/robotics/wheel-legged-robot/)
 
 ### Academic Website
 *2024*
