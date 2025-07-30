@@ -146,27 +146,18 @@ class AWaves extends HTMLElement {
    * 触摸移动处理
    */
   onTouchMove(e) {
-    e.preventDefault();
-    const touch = e.touches[0];
-    this.updateMousePosition(touch.clientX, touch.clientY);
+    if (e.touches.length > 0) {
+      this.updateMousePosition(e.touches[0].pageX, e.touches[0].pageY);
+    }
   }
 
   /**
    * 更新鼠标位置
    */
   updateMousePosition(x, y) {
-    const { mouse } = this;
-
-    mouse.x = x - this.bounding.left;
-    mouse.y = y - this.bounding.top + window.scrollY;
-
-    if (!mouse.set) {
-      mouse.sx = mouse.x;
-      mouse.sy = mouse.y;
-      mouse.lx = mouse.x;
-      mouse.ly = mouse.y;
-      mouse.set = true;
-    }
+    this.mouse.x = x;
+    this.mouse.y = y;
+    this.mouse.set = true;
   }
 
   /**
@@ -374,4 +365,243 @@ class AWaves extends HTMLElement {
 // 注册自定义元素
 if (!customElements.get('a-waves')) {
   customElements.define('a-waves', AWaves);
+}
+
+// 眼睛动画组件
+class EyeAnimation {
+  constructor(container) {
+    this.container = container;
+    this.canvas = null;
+    this.ctx = null;
+    this.animationId = null;
+    this.startTime = null;
+    this.duration = 3000; // 3秒动画
+    this.isComplete = false;
+    
+    // 眼睛参数
+    this.eyeCenter = { x: 0, y: 0 };
+    this.eyeWidth = 200;
+    this.eyeHeight = 100;
+    this.pupilRadius = 30;
+    
+    this.init();
+  }
+  
+  init() {
+    this.createCanvas();
+    this.setupEye();
+  }
+  
+  createCanvas() {
+    this.canvas = document.createElement('canvas');
+    this.canvas.style.position = 'fixed';
+    this.canvas.style.top = '0';
+    this.canvas.style.left = '0';
+    this.canvas.style.width = '100vw';
+    this.canvas.style.height = '100vh';
+    this.canvas.style.zIndex = '99999';
+    this.canvas.style.pointerEvents = 'none';
+    this.canvas.style.background = 'rgba(0, 0, 0, 0.9)';
+    
+    this.ctx = this.canvas.getContext('2d');
+    this.container.appendChild(this.canvas);
+    
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
+  }
+  
+  resize() {
+    const dpr = window.devicePixelRatio || 1;
+    const rect = this.canvas.getBoundingClientRect();
+    
+    this.canvas.width = rect.width * dpr;
+    this.canvas.height = rect.height * dpr;
+    
+    this.ctx.scale(dpr, dpr);
+    
+    // 更新眼睛中心位置
+    this.eyeCenter.x = rect.width / 2;
+    this.eyeCenter.y = rect.height / 2;
+  }
+  
+  setupEye() {
+    // 眼睛路径点
+    this.eyePaths = {
+      upperLid: this.generateEyeLidPath(true),
+      lowerLid: this.generateEyeLidPath(false),
+      iris: this.generateIrisPath(),
+      pupil: this.generatePupilPath()
+    };
+  }
+  
+  generateEyeLidPath(isUpper) {
+    const points = [];
+    const segments = 50;
+    const { x, y } = this.eyeCenter;
+    
+    for (let i = 0; i <= segments; i++) {
+      const t = i / segments;
+      const angle = Math.PI * t;
+      
+      const baseX = x + Math.cos(angle) * this.eyeWidth / 2;
+      const baseY = y + (isUpper ? -1 : 1) * Math.sin(angle) * this.eyeHeight / 2;
+      
+      points.push({ x: baseX, y: baseY });
+    }
+    
+    return points;
+  }
+  
+  generateIrisPath() {
+    const points = [];
+    const segments = 30;
+    const { x, y } = this.eyeCenter;
+    const radius = this.pupilRadius * 1.8;
+    
+    for (let i = 0; i <= segments; i++) {
+      const angle = (Math.PI * 2 * i) / segments;
+      points.push({
+        x: x + Math.cos(angle) * radius,
+        y: y + Math.sin(angle) * radius
+      });
+    }
+    
+    return points;
+  }
+  
+  generatePupilPath() {
+    const points = [];
+    const segments = 20;
+    const { x, y } = this.eyeCenter;
+    
+    for (let i = 0; i <= segments; i++) {
+      const angle = (Math.PI * 2 * i) / segments;
+      points.push({
+        x: x + Math.cos(angle) * this.pupilRadius,
+        y: y + Math.sin(angle) * this.pupilRadius
+      });
+    }
+    
+    return points;
+  }
+  
+  drawPath(points, progress, strokeStyle = '#78aaff', lineWidth = 2) {
+    if (points.length < 2) return;
+    
+    this.ctx.strokeStyle = strokeStyle;
+    this.ctx.lineWidth = lineWidth;
+    this.ctx.lineCap = 'round';
+    this.ctx.lineJoin = 'round';
+    
+    const visiblePoints = Math.floor(points.length * progress);
+    
+    this.ctx.beginPath();
+    this.ctx.moveTo(points[0].x, points[0].y);
+    
+    for (let i = 1; i < visiblePoints; i++) {
+      this.ctx.lineTo(points[i].x, points[i].y);
+    }
+    
+    // 添加发光效果
+    this.ctx.shadowColor = strokeStyle;
+    this.ctx.shadowBlur = 10;
+    this.ctx.stroke();
+    this.ctx.shadowBlur = 0;
+  }
+  
+  animate(timestamp) {
+    if (!this.startTime) this.startTime = timestamp;
+    
+    const elapsed = timestamp - this.startTime;
+    const progress = Math.min(elapsed / this.duration, 1);
+    
+    // 清除画布
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    // 绘制背景渐变
+    const gradient = this.ctx.createRadialGradient(
+      this.eyeCenter.x, this.eyeCenter.y, 0,
+      this.eyeCenter.x, this.eyeCenter.y, 300
+    );
+    gradient.addColorStop(0, 'rgba(0, 0, 0, 0.9)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.95)');
+    
+    this.ctx.fillStyle = gradient;
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    // 动画阶段
+    if (progress < 0.3) {
+      // 阶段1: 绘制下眼睑
+      const lidProgress = progress / 0.3;
+      this.drawPath(this.eyePaths.lowerLid, lidProgress, '#88CE02', 3);
+      
+    } else if (progress < 0.6) {
+      // 阶段2: 绘制上眼睑（睁开效果）
+      const lidProgress = (progress - 0.3) / 0.3;
+      this.drawPath(this.eyePaths.lowerLid, 1, '#88CE02', 3);
+      this.drawPath(this.eyePaths.upperLid, lidProgress, '#88CE02', 3);
+      
+    } else if (progress < 0.8) {
+      // 阶段3: 绘制虹膜
+      const irisProgress = (progress - 0.6) / 0.2;
+      this.drawPath(this.eyePaths.lowerLid, 1, '#88CE02', 3);
+      this.drawPath(this.eyePaths.upperLid, 1, '#88CE02', 3);
+      this.drawPath(this.eyePaths.iris, irisProgress, '#78aaff', 2);
+      
+    } else {
+      // 阶段4: 绘制瞳孔并完成
+      const pupilProgress = (progress - 0.8) / 0.2;
+      this.drawPath(this.eyePaths.lowerLid, 1, '#88CE02', 3);
+      this.drawPath(this.eyePaths.upperLid, 1, '#88CE02', 3);
+      this.drawPath(this.eyePaths.iris, 1, '#78aaff', 2);
+      this.drawPath(this.eyePaths.pupil, pupilProgress, '#ffffff', 2);
+      
+      // 添加瞳孔填充
+      if (pupilProgress > 0.5) {
+        this.ctx.fillStyle = '#000000';
+        this.ctx.beginPath();
+        this.ctx.arc(this.eyeCenter.x, this.eyeCenter.y, this.pupilRadius * pupilProgress, 0, Math.PI * 2);
+        this.ctx.fill();
+      }
+    }
+    
+    if (progress < 1) {
+      this.animationId = requestAnimationFrame((t) => this.animate(t));
+    } else {
+      this.complete();
+    }
+  }
+  
+  complete() {
+    this.isComplete = true;
+    
+    // 淡出动画
+    let opacity = 1;
+    const fadeOut = () => {
+      opacity -= 0.05;
+      this.canvas.style.opacity = opacity;
+      
+      if (opacity > 0) {
+        requestAnimationFrame(fadeOut);
+      } else {
+        this.destroy();
+      }
+    };
+    
+    setTimeout(fadeOut, 500);
+  }
+  
+  start() {
+    this.animationId = requestAnimationFrame((t) => this.animate(t));
+  }
+  
+  destroy() {
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+    }
+    if (this.canvas && this.canvas.parentNode) {
+      this.canvas.parentNode.removeChild(this.canvas);
+    }
+    window.removeEventListener('resize', () => this.resize());
+  }
 }

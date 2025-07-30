@@ -1,61 +1,40 @@
-/* ---------- CSS变量与主题 ---------- */
+/* ---------- 全局色彩与字体 ---------- */
 :root {
     --primary: #3682ff;
     --primary-dark: #2457b3;
-    --bg-color: #f6f8fb;
+    --bg-color: #f8fafc;
     --bg-color-hover: #e9f2ff;
-    --bg-content: rgba(255,255,255,0.95);
-    --border-color: rgba(40,80,160,0.06);
-    --text-color: #202e43;
-    --text-secondary: #4c627a;
-    
-    /* 波浪组件颜色 */
-    --wave-cursor-color: #160000;
-    --wave-line-color: #160000;
-    
-    /* 阴影系统 */
-    --shadow-light: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-    --shadow-medium: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-large: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-    
-    /* 动画时长 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.25s;
-    --transition-slow: 0.4s;
+    --bg-content: rgba(255,255,255,0.98);
+    --border-color: rgba(40,80,160,0.08);
+    --text-color: #1e293b;
+    --text-secondary: #475569;
+    --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .dark-theme {
-    --primary: #78aaff;
-    --primary-dark: #c1d6f7;
-    --bg-color: #181e2a;
-    --bg-content: rgba(23, 49, 118, 0.92);
-    --border-color: rgba(80,120,210,0.09);
-    --text-color: #d3e3ff;
-    --text-secondary: #91aacc;
-    
-    /* 暗色主题的波浪组件 */
-    --wave-cursor-color: #78aaff;
-    --wave-line-color: #78aaff;
-}
-
-/* ---------- 基础样式 ---------- */
-* {
-    box-sizing: border-box;
+    --primary: #60a5fa;
+    --primary-dark: #93c5fd;
+    --bg-color: #0f172a;
+    --bg-content: rgba(30, 41, 59, 0.95);
+    --border-color: rgba(100,140,220,0.12);
+    --text-color: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
 body {
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
     font-size: 16px;
-    line-height: 1.7;
-    margin: 0;
-    padding: 0;
-    transition: background var(--transition-normal), color var(--transition-normal);
-    overflow-x: hidden;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    scroll-behavior: smooth;
 }
-
-/* 暗色主题下不隐藏视差背景 */
 
 /* ---------- 视差背景优化 ---------- */
 .big-parallax-bg {
@@ -131,7 +110,7 @@ body {
     display: none;
 }
 
-/* ---------- 页眉导航 ---------- */
+/* ---------- 页眉优化 ---------- */
 .site-header {
     position: fixed;
     top: 0;
@@ -144,7 +123,7 @@ body {
     border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-light);
     backdrop-filter: blur(12px);
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
 }
 
 .dark-theme .site-header {
@@ -179,12 +158,12 @@ body {
     transform: none;
 }
 
-/* ---------- 导航链接 ---------- */
+/* ---------- 导航链接优化 ---------- */
 .site-nav .page-link {
     color: var(--text-secondary);
     margin-left: 24px;
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition: all 0.2s ease;
     padding: 8px 12px;
     border-radius: 8px;
     font-weight: 500;
@@ -280,6 +259,7 @@ body {
     color: var(--text-color);
 }
 
+/* ---------- 个人资料图片优化 ---------- */
 .header-container .profile-image {
     width: 150px;
     height: 200px;
@@ -287,11 +267,11 @@ body {
     border-radius: 16px;
     box-shadow: var(--shadow-medium);
     flex-shrink: 0;
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
 }
 
 .header-container .profile-image:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
     box-shadow: var(--shadow-large);
 }
 
@@ -324,7 +304,7 @@ a:hover {
     transform: translateY(-1px);
 }
 
-/* ---------- 动画定义 ---------- */
+/* ---------- 动画优化 ---------- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -336,7 +316,11 @@ a:hover {
     }
 }
 
-/* ---------- 滚动条样式 ---------- */
+.wrapper {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* ---------- 滚动条优化 ---------- */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -348,35 +332,17 @@ a:hover {
 ::-webkit-scrollbar-thumb {
     background: var(--primary);
     border-radius: 4px;
-    transition: background var(--transition-fast);
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
 }
 
-/* ---------- 响应式设计 ---------- */
+/* ---------- 响应式优化 ---------- */
 @media (max-width: 768px) {
-    .page-content {
-        padding-top: 70px;
-    }
-    
-    .wrapper {
+    .wrapper, .page-content .wrapper {
         padding: 24px 20px;
         margin: 20px 16px;
-        border-radius: 12px;
-    }
-    
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 16px 0;
-    }
-    
-    .header-container .profile-image {
-        width: 80px;
-        height: 80px;
         border-radius: 12px;
     }
     
@@ -387,13 +353,8 @@ a:hover {
     .theme-switch {
         right: 16px;
         bottom: 16px;
-        width: 48px;
-        height: 48px;
-    }
-    
-    .site-nav .page-link {
-        margin-left: 16px;
-        padding: 6px 8px;
+        width: 44px;
+        height: 44px;
     }
 }
 
