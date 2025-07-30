@@ -4,8 +4,6 @@ title: AI Agent Fundamentals - From LLM to Multi-Agent Systems
 permalink: /multiagent/ai-agent-fundamentals/
 ---
 
-# AI Agent Fundamentals: From LLM to Multi-Agent Systems
-
 ## 1. 什么是 AI Agent？
 
 **简单定义：** AI Agent（人工智能代理）是一种能够感知环境、进行决策和执行动作的智能实体。
