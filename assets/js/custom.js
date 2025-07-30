@@ -118,6 +118,133 @@ function initSmoothScroll() {
     return null;
 }
 
+// 初始化返回顶端按钮
+function initBackToTop() {
+    // 创建返回顶端按钮
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.setAttribute('aria-label', '返回顶端');
+    document.body.appendChild(backToTopBtn);
+    
+    let locomotiveScroll = null;
+    
+    // 滚动监听函数
+    function toggleBackToTop() {
+        let scrollY = 0;
+        
+        // 检查是否使用了 Locomotive Scroll
+        if (locomotiveScroll && locomotiveScroll.scroll) {
+            scrollY = locomotiveScroll.scroll.instance.scroll.y || 0;
+        } else {
+            scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        }
+        
+        if (scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+    
+    // 点击事件
+    backToTopBtn.addEventListener('click', function() {
+        if (locomotiveScroll && locomotiveScroll.scrollTo) {
+            locomotiveScroll.scrollTo(0, {
+                duration: 1000,
+                easing: [0.25, 0.0, 0.35, 1.0]
+            });
+        } else {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+    
+    // 返回 locomotive scroll 实例的引用
+    return {
+        setLocomotiveScroll: function(scroll) {
+            locomotiveScroll = scroll;
+            
+            // 监听 Locomotive Scroll 的滚动事件
+            if (scroll && scroll.on) {
+                scroll.on('scroll', toggleBackToTop);
+            }
+        },
+        toggleBackToTop: toggleBackToTop
+    };
+}
+
+// 初始化代码块复制功能
+function initCodeCopy() {
+    // 为所有代码块添加复制功能
+    const codeBlocks = document.querySelectorAll('pre');
+    
+    codeBlocks.forEach((pre, index) => {
+        // 确保pre元素有相对定位
+        pre.style.position = 'relative';
+        
+        // 创建复制按钮
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn';
+        copyBtn.innerHTML = '📋';
+        copyBtn.setAttribute('aria-label', '复制代码');
+        copyBtn.setAttribute('data-index', index);
+        
+        // 添加点击事件
+        copyBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const codeElement = pre.querySelector('code');
+            const text = codeElement ? codeElement.textContent : pre.textContent;
+            
+            try {
+                await navigator.clipboard.writeText(text);
+                
+                // 显示复制成功反馈
+                copyBtn.innerHTML = '✅';
+                copyBtn.style.background = '#22c55e';
+                copyBtn.style.color = 'white';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = '📋';
+                    copyBtn.style.background = '';
+                    copyBtn.style.color = '';
+                }, 2000);
+                
+            } catch (err) {
+                // 降级方案
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // 显示复制成功反馈
+                copyBtn.innerHTML = '✅';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '📋';
+                }, 2000);
+            }
+        });
+        
+        // 将按钮直接添加到代码块
+        pre.appendChild(copyBtn);
+        
+        // 悬停显示/隐藏
+        pre.addEventListener('mouseenter', () => {
+            copyBtn.style.opacity = '1';
+        });
+        
+        pre.addEventListener('mouseleave', () => {
+            copyBtn.style.opacity = '0';
+        });
+    });
+}
+
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化主题
@@ -129,6 +256,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化平滑滚动
     const scroll = initSmoothScroll();
     
+    // 初始化返回顶端按钮
+    const backToTop = initBackToTop();
+    
+    // 将 locomotive scroll 实例传递给返回顶端按钮
+    if (scroll) {
+        backToTop.setLocomotiveScroll(scroll);
+    } else {
+        // 如果没有 locomotive scroll，使用普通的滚动监听
+        window.addEventListener('scroll', backToTop.toggleBackToTop);
+        backToTop.toggleBackToTop(); // 初始检查
+    }
+    
+    // 初始化代码复制功能
+    initCodeCopy();
+    
     // 隐藏加载器
     setTimeout(() => {
         const loader = document.getElementById('page-loader');
@@ -138,17 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
 });
 
-// 性能优化：页面不可见时暂停动画
-document.addEventListener('visibilitychange', function() {
-    const follower = document.querySelector('#main-cursor-follower');
-    if (document.hidden && follower) {
-        follower.style.display = 'none';
-    } else if (follower) {
-        follower.style.display = 'block';
-    }
-});
-
-// 窗口调整大小时刷新视差效果
+// 窗口大小改变时刷新视差效果
 window.addEventListener('resize', function() {
     if (rellax) {
         rellax.refresh();

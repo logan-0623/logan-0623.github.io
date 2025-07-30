@@ -414,3 +414,818 @@ body[class*="post-"] .wrapper h2:first-of-type {
     text-align: left;
 }
 
+/* ---------- 导航栏动画优化 ---------- */
+.site-nav {
+    position: relative;
+}
+
+.site-nav .page-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.site-nav .page-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.site-nav .page-link:hover::before {
+    width: 80%;
+}
+
+.site-nav .page-link.active {
+    color: var(--primary);
+    background: rgba(54, 130, 255, 0.1);
+}
+
+.site-nav .page-link.active::before {
+    width: 80%;
+}
+
+/* ---------- 移动端面包屑优化 ---------- */
+@media (max-width: 768px) {
+    .breadcrumb-nav {
+        margin-top: 60px;
+        top: 60px;
+    }
+    
+    .breadcrumb {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+    
+    .breadcrumb-item a {
+        padding: 3px 6px;
+    }
+}
+
+/* ---------- 返回顶端按钮 ---------- */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 90px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-content);
+    color: var(--text-color);
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: var(--shadow-large);
+    background: var(--primary);
+    color: white;
+}
+
+.back-to-top:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 80px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* ---------- 目录导航 (TOC) - 可收缩版 ---------- */
+.toc-container {
+    position: fixed;
+    left: -160px; /* 默认隐藏 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    max-height: 80vh;
+    background: var(--bg-content);
+    border: 1px solid var(--border-color);
+    border-radius: 0 12px 12px 0;
+    border-left: none;
+    box-shadow: var(--shadow-medium);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-size: 0.75rem;
+}
+
+.toc-container:hover {
+    left: 0; /* 悬停时展开 */
+    box-shadow: var(--shadow-large);
+}
+
+.toc-container::after {
+    content: '📋';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 40px;
+    background: var(--bg-content);
+    border: 1px solid var(--border-color);
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toc-container:hover::after {
+    background: var(--primary);
+    color: white;
+}
+
+.toc-header {
+    padding: 6px 12px;
+    background: rgba(54, 130, 255, 0.08);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+}
+
+.toc-content {
+    padding: 6px 0;
+    max-height: calc(80vh - 30px);
+    overflow-y: auto;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-item {
+    margin: 0;
+}
+
+.toc-link {
+    display: block;
+    padding: 3px 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toc-link:hover {
+    color: var(--primary);
+    background: rgba(54, 130, 255, 0.05);
+    border-left-color: var(--primary);
+    transform: none;
+}
+
+.toc-link.active {
+    color: var(--primary);
+    background: rgba(54, 130, 255, 0.1);
+    border-left-color: var(--primary);
+    font-weight: 500;
+}
+
+/* 不同级别的标题缩进 - 更紧凑 */
+.toc-link[data-level="1"] { padding-left: 10px; font-weight: 500; }
+.toc-link[data-level="2"] { padding-left: 14px; }
+.toc-link[data-level="3"] { padding-left: 20px; font-size: 0.65rem; }
+.toc-link[data-level="4"] { padding-left: 26px; font-size: 0.65rem; }
+.toc-link[data-level="5"] { padding-left: 32px; font-size: 0.6rem; }
+.toc-link[data-level="6"] { padding-left: 38px; font-size: 0.6rem; }
+
+/* 自定义滚动条 - 更细 */
+.toc-content::-webkit-scrollbar {
+    width: 2px;
+}
+
+.toc-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.toc-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 1px;
+}
+
+.toc-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* 只在桌面端显示 */
+@media (max-width: 1200px) {
+    .toc-container {
+        display: none !important;
+    }
+}
+
+/* 内容始终居中，不受TOC影响 */
+.page-content {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- 代码块样式优化 ---------- */
+pre, code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 行内代码 */
+code {
+    background: linear-gradient(135deg, rgba(54, 130, 255, 0.1), rgba(54, 130, 255, 0.05));
+    color: var(--primary);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(54, 130, 255, 0.15);
+    box-shadow: 0 1px 3px rgba(54, 130, 255, 0.1);
+}
+
+/* 代码块容器 */
+pre {
+    position: relative;
+    background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #334155;
+    font-size: 0.9rem;
+    box-shadow: none;
+    display: block;
+    line-height: 1.6;
+}
+
+/* 暗色主题下的代码块 - VSCode风格 */
+.dark-theme code {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(96, 165, 250, 0.1));
+    color: #93c5fd;
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow: 0 1px 3px rgba(96, 165, 250, 0.2);
+}
+
+.dark-theme pre {
+    background: linear-gradient(145deg, #1e1e1e, #252526);
+    border-color: rgba(100, 140, 220, 0.3);
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.4),
+        0 2px 4px -1px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme pre code {
+    color: #d4d4d4;
+}
+
+.dark-theme pre:hover {
+    box-shadow: 
+        0 8px 25px -5px rgba(0, 0, 0, 0.5),
+        0 4px 6px -2px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 代码块语言标签 */
+pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 0 12px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Bash/Shell 特殊样式 */
+pre[data-lang="bash"]::before,
+pre[data-lang="shell"]::before {
+    content: "BASH";
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+pre[data-lang="python"]::before {
+    content: "PYTHON";
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+pre[data-lang="javascript"]::before {
+    content: "JS";
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* 语法高亮 */
+.dark-theme pre code .comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.dark-theme pre code .string {
+    color: #34d399;
+}
+
+.dark-theme pre code .keyword {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.dark-theme pre code .number {
+    color: #f472b6;
+}
+
+.dark-theme pre code .operator {
+    color: #fb7185;
+}
+
+/* 亮色主题语法高亮 */
+pre code .comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+pre code .string {
+    color: #059669;
+}
+
+pre code .keyword {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+pre code .number {
+    color: #dc2626;
+}
+
+pre code .operator {
+    color: #7c3aed;
+}
+
+/* 复制按钮 */
+pre {
+    position: relative;
+}
+
+pre::after {
+    content: "📋";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+pre:hover::after {
+    opacity: 1;
+}
+
+.dark-theme pre::after {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+/* 复制按钮样式 */
+.copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    outline: none;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+.dark-theme .copy-btn {
+    background: rgba(45, 55, 72, 0.95);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #e2e8f0;
+}
+
+.dark-theme .copy-btn:hover {
+    background: rgba(45, 55, 72, 1);
+}
+
+/* 确保代码块容器有正确的定位上下文 */
+pre {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+/* 移除之前的伪元素复制按钮 */
+pre::after {
+    display: none !important;
+}
+
+/* 滚动条美化 */
+pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+}
+
+/* 代码块悬停效果 */
+pre:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 8px 25px -5px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme pre:hover {
+    box-shadow: 
+        0 8px 25px -5px rgba(0, 0, 0, 0.5),
+        0 4px 6px -2px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    pre {
+        padding: 16px 18px;
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+    
+    pre code {
+        font-size: 0.85rem;
+    }
+    
+    code {
+        font-size: 0.8rem;
+        padding: 2px 6px;
+    }
+}
+
+/* 暗色主题下的代码块 */
+.dark-theme pre,
+.dark-theme code {
+    background-color: rgba(30, 41, 59, 0.95);
+    color: #e2e8f0;
+    border-color: rgba(100, 140, 220, 0.2);
+}
+
+.dark-theme pre {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border: 1px solid rgba(100, 140, 220, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #d4d4d4;
+    font-size: 0.9rem;
+    box-shadow: none;
+    display: block;
+    line-height: 1.6;
+}
+
+/* 行内代码特殊处理 */
+p code,
+li code,
+td code {
+    background-color: rgba(54, 130, 255, 0.1);
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.dark-theme p code,
+.dark-theme li code,
+.dark-theme td code {
+    background-color: rgba(96, 165, 250, 0.2);
+    color: #93c5fd;
+}
+
+/* 代码块语言标签 */
+pre[class*="language-"]::before {
+    content: attr(class);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--primary);
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    border-radius: 0 8px 0 8px;
+    text-transform: uppercase;
+}
+
+/* Bash/Shell 代码块特殊样式 */
+pre code.language-bash,
+pre code.language-shell {
+    color: #2d3748;
+}
+
+.dark-theme pre code.language-bash,
+.dark-theme pre code.language-shell {
+    color: #a0aec0;
+}
+
+/* 代码块内的注释 */
+pre code .comment {
+    color: #718096;
+    font-style: italic;
+}
+
+.dark-theme pre code .comment {
+    color: #a0aec0;
+}
+
+/* 代码块内的字符串 */
+pre code .string {
+    color: #38a169;
+}
+
+.dark-theme pre code .string {
+    color: #68d391;
+}
+
+/* 代码块内的关键字 */
+pre code .keyword {
+    color: #3182ce;
+    font-weight: 600;
+}
+
+.dark-theme pre code .keyword {
+    color: #63b3ed;
+}
+
+/* 强制覆盖暗色主题代码块样式 */
+body.dark-theme pre {
+    background: linear-gradient(145deg, #1e293b, #0f172a) !important;
+    border: 1px solid rgba(100, 140, 220, 0.3) !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-theme pre code {
+    background: none !important;
+    color: #d4d4d4 !important;
+    border: none !important;
+}
+
+body.dark-theme code {
+    background: rgba(96, 165, 250, 0.2) !important;
+    color: #93c5fd !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* 暗色主题下的链接样式 */
+.dark-theme a {
+    color: #60a5fa;
+}
+
+.dark-theme a:hover {
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.15);
+}
+
+/* 暗色主题下代码块内的语法高亮 */
+.dark-theme pre code .keyword,
+.dark-theme pre code .flag,
+.dark-theme pre code .option {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.dark-theme pre code .string {
+    color: #34d399;
+}
+
+.dark-theme pre code .comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.dark-theme pre code .number {
+    color: #f472b6;
+}
+
+.dark-theme pre code .operator {
+    color: #fb7185;
+}
+
+.dark-theme pre code .function {
+    color: #fbbf24;
+}
+
+.dark-theme pre code .variable {
+    color: #a78bfa;
+}
+
+/* 特殊处理命令行参数 */
+.dark-theme pre code {
+    color: #e2e8f0;
+}
+
+/* 确保所有蓝色元素在暗色主题下可见 */
+.dark-theme .text-blue,
+.dark-theme .text-primary,
+.dark-theme [class*="blue"] {
+    color: #60a5fa !important;
+}
+
+/* 行内代码在暗色主题下的颜色 */
+.dark-theme p code,
+.dark-theme li code,
+.dark-theme td code {
+    background: rgba(96, 165, 250, 0.2);
+    color: #93c5fd;
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* 导航链接在暗色主题下 */
+.dark-theme .site-nav .page-link {
+    color: #e2e8f0;
+}
+
+.dark-theme .site-nav .page-link:hover {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.15);
+}
+
+/* 网站标题在暗色主题下 */
+.dark-theme .site-title {
+    color: #ffffff;
+}
+
+.dark-theme .site-title:hover {
+    color: #60a5fa;
+}
+
+/* 暗色主题下的链接样式 */
+.dark-theme a {
+    color: #60a5fa;
+}
+
+.dark-theme a:hover {
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.15);
+}
+
+/* 暗色主题下代码块内的语法高亮 */
+.dark-theme pre code .keyword,
+.dark-theme pre code .flag,
+.dark-theme pre code .option {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.dark-theme pre code .string {
+    color: #34d399;
+}
+
+.dark-theme pre code .comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.dark-theme pre code .number {
+    color: #f472b6;
+}
+
+.dark-theme pre code .operator {
+    color: #fb7185;
+}
+
+.dark-theme pre code .function {
+    color: #fbbf24;
+}
+
+.dark-theme pre code .variable {
+    color: #a78bfa;
+}
+
+/* 特殊处理命令行参数 */
+.dark-theme pre code {
+    color: #e2e8f0;
+}
+
+/* 确保所有蓝色元素在暗色主题下可见 */
+.dark-theme .text-blue,
+.dark-theme .text-primary,
+.dark-theme [class*="blue"] {
+    color: #60a5fa !important;
+}
+
+/* 行内代码在暗色主题下的颜色 */
+.dark-theme p code,
+.dark-theme li code,
+.dark-theme td code {
+    background: rgba(96, 165, 250, 0.2);
+    color: #93c5fd;
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* 导航链接在暗色主题下 */
+.dark-theme .site-nav .page-link {
+    color: #e2e8f0;
+}
+
+.dark-theme .site-nav .page-link:hover {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.15);
+}
+
+/* 网站标题在暗色主题下 */
+.dark-theme .site-title {
+    color: #ffffff;
+}
+
+.dark-theme .site-title:hover {
+    color: #60a5fa;
+}
+
