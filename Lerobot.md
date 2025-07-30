@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RDT-1B A DIFFUSION FOUNDATION MODEL FOR BIMANUAL MANIPULATION
-permalink: /blog/robotics/lerobot/
+permalink: /lerobot/
 ---
 
 [2410.07864 (arxiv.org)](https://arxiv.org/pdf/2410.07864)

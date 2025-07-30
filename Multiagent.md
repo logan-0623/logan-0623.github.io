@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Multiagent Reasearch
-permalink: /blog/multiagent/
+title: Multiagent Research
+permalink: /multiagent/
 ---
 
 

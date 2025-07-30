@@ -45,6 +45,7 @@ research_gate: # 如果你有ResearchGate账号可以添加
 show_excerpts: true
 header_pages:
   - research.md
+  - projects.md
   - cv.md
   - publications.md
   - about.md

@@ -7,9 +7,9 @@ permalink: /blog/
 Dunning-Kruger Effect: **The more ignorant a person is, the more confident**.
 
 
-[Robotics](/blog/robotics/)
+[Robotics](/robotics/)
 
-[Multiagent](/blog/multiagent/)
+[Multiagent](/multiagent/)
 
-[Multimodality](/blog/multimodality/)
+[Multimodality](/multimodality/)
 
