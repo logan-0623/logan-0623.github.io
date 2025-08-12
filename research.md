@@ -6,6 +6,26 @@ permalink: /research/
 
 ## Current Research
 
+### PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation
+
+*Dec 2024 – July 2025*
+**MBZUAI**
+*Research Assistant, supervised by Professor Imran Razzak*
+
+This project designs a prior-guided SAM framework that uses a medical LLM to align high-level textual priors with pixel-level image cues for robust multi-organ segmentation.
+
+**Key Contributions:**
+
+* Devised a fine-grained modality prior aligner leveraging a medical LLM to bridge text semantics and image details.
+* Engineered a multi-level feature-fusion decoder with iterative mask refinement, supporting unprompted learning.
+* Built an end-to-end training pipeline and ablations to validate gains under varied prompts and modalities.
+
+**Results & Availability:**
+- [PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation](https://arxiv.org/abs/2503.18227)
+* Achieved state-of-the-art performance on the Synapse dataset.
+* Implementation publicly available.
+
+
 ### Multi-modal Deletion Completion of OCT and Fundus Medical Images
 *March 2024 - August 2024*  
 **University of Exeter**  

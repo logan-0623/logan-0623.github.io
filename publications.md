@@ -10,7 +10,7 @@ permalink: /publications/
 
 **PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation**
    - *Yiheng Zhong\*, **Zihong Luo**\*, Chengzhi Liu, Feilong Tang, Zelin Peng, Ming Hu, Yingzhen Hu, Jionglong Su, Zongyuan Geand, Imran Razzak*
-   - The 28th International Conference on Medicak Image Computing and Computer Assisted Intervention (MICCAI2025)
+   - The 28th International Conference on Medicak Image Computing and Computer Assisted Intervention 
    - [Paper Link](https://arxiv.org/abs/2503.18227)
 
 **Incomplete Modality Disentangled Representation for Ophthalmic Disease Grading and Diagnosis**
