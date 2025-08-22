@@ -47,6 +47,9 @@ Here are some projects I've worked on and research implementations I've reproduc
   - Real-time embedded systems programming
   - Sensor fusion and feedback control systems
 - [Project Document →](/robotics/wheel-legged-robot/)
+- [Gitee →](https://gitee.com/StackForce/bipedal_wheeled_robot)
+
+
 
 ### Academic Website
 *2024*
