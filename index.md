@@ -5,13 +5,33 @@ title: Home Page
 
 ## Welcome to My Academic Homepage
 
-I am a Computing Science student at the University of Liverpool, passionate about machine learning, deep learning, and medical image analysis.
+I am **Zihong Luo**, a Computing Science student at the **University of Liverpool**, passionate about advancing artificial intelligence in healthcare through multi-modal learning and medical image analysis.
 
-My recent projects explore the intersection of AI and interaction, including prior-guided segmentation models and multi-modal medical imaging frameworks. Building on my experience in medical imaging, multimodal learning, and real-time robotic systems, I aim to integrate AI-driven perception with interactive platforms to enable explainable, efficient, and clinically applicable solutions.
+### Research Focus
 
-I am now actively seeking **Fall 2026 PhD or Research Assistant positions** in **Artificial Intelligence**, focusing on multimodal learning, cross-modal perception, and interaction modeling, where I aim to integrate AI-driven perception with intelligent systems for medical and real-world applications.
+My research explores the intersection of **AI and medical imaging**, with a focus on:
+- **Multi-modal Learning**: Integrating diverse data sources (OCT, Fundus, clinical records) for comprehensive disease understanding
+- **Medical Image Segmentation**: Developing prior-guided models for robust multi-organ segmentation
+- **Incomplete Modality Learning**: Handling missing medical data through disentangled representation
 
-Feel free to contact me via [email](mailto:Z.Luo21@student.liverpool.ac.uk), or view my [CV](/cv/).
+### Recent Achievements
+
+✨ **5 publications** at top-tier venues (MICCAI, AAAI, ICANN, ICPR)
+🔬 **Research Assistant** at MBZUAI (2024-Present)
+🎓 **GPA 3.75/4.0** at Xi'an Jiaotong-Liverpool University
+
+---
+
+## 🎯 Seeking Opportunities
+
+I am actively seeking **Fall 2026 PhD or Research Assistant positions** in **Artificial Intelligence**, focusing on:
+- Multi-modal Learning & Cross-modal Perception
+- Medical Image Analysis & Computer Vision
+- AI-driven Interactive Systems
+
+**Contact:** [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk) | [Download CV →](/cv/)
+
+---
 
 ### About Me
 Discover my academic journey, research interests, and professional background.

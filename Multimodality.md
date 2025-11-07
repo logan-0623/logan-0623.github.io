@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Multimodality Reasearch
+title: Multimodality Research
 permalink: /multimodality/
 ---
 

@@ -37,23 +37,26 @@ plugins:
 # Additional site settings
 author: Zihong Luo
 location: Liverpool, UK
-linkedin_username: # 如果你有LinkedIn账号可以添加
-google_scholar: # 如果你有Google Scholar账号可以添加
-research_gate: # 如果你有ResearchGate账号可以添加
+linkedin_username: # Add your LinkedIn username (e.g., zihong-luo-123456)
+google_scholar: # Add your Google Scholar user ID (e.g., XXXXXXXXXXXXX)
+research_gate: # Add your ResearchGate profile username
+orcid: # Add your ORCID ID (e.g., 0000-0000-0000-0000)
+
+# Social media and academic profiles
+# Once you create these profiles, uncomment and fill in:
+# linkedin_username: your-username
+# google_scholar: your-scholar-id
+# orcid: your-orcid-id
 
 # Site features
 show_excerpts: true
 header_pages:
+  - about.md
   - research.md
+  - publications.md
   - projects.md
   - cv.md
-  - publications.md
-  - about.md
   - Blog.md
-
----
-toc: true
----
 
 # Custom assets
 custom_css: /assets/css/custom.css
@@ -75,6 +78,3 @@ defaults:
       path: "assets/**/*"
     values:
       sitemap: false
-
-custom_css: /assets/css/custom.css
-custom_js: /assets/js/custom.js
