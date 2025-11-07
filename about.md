@@ -7,7 +7,7 @@ permalink: /about/
 <!-- ## About Me -->
 
 <div class="header-container">
-  I am a Computing Science student at the University of Liverpool and Xi'an Jiaotong-Liverpool University, with research interests in Machine Learning, Deep Learning, and Medical Image Analysis.
+  I am a Computing Science student at the University of Liverpool and Xi'an Jiaotong-Liverpool University, with research interests in Robotics, Embodied AI, Multi-modal Learning, and Vision-Language-Action Models. Currently focusing on building intelligent robotic systems that can adapt to diverse hardware and real-world scenarios.
   <img src="/assets/profile.jpg" alt="Zihong Luo" class="profile-image">
 </div>
 
@@ -20,13 +20,20 @@ permalink: /about/
 
 - **Xi'an Jiaotong-Liverpool University (XJTLU)**
   - Bachelor of Science in Information and Computing Science
-  - GPA: 3.75/4.0
+  - GPA: 3.8/4.0
   - Expected June 2024
   - Suzhou, China
 
+## Honors & Awards
+
+- **WorldQuant International Quant Championship 2025** - United Kingdom Finals (Top 6)
+  - Ranked **Top 0.1%** among **79,000+ global participants**
+  - Advanced to National/Regional Finals
+  - Invited to WorldQuant Consultant Program
+
 ## Recent Publications
 
-- **[MICCAI 2025]** PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation
+- **[BIBM 2025]** PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation
 - **[AAAI 2025]** Incomplete Modality Disentangled Representation for Ophthalmic Disease Grading and Diagnosis
 - **[ICANN 2024]** ARIF: An Adaptive Attention-Based Cross-Modal Representation Integration Framework
 - **[ICPR 2024]** MTSA-SNN: A Multi-modal Time Series Analysis Model Based on Spiking Neural Network
@@ -36,7 +43,7 @@ permalink: /about/
 
 ## Current Research
 
-I'm currently working on multi-modal learning and medical image analysis at the University of Exeter, focusing on OCT and Fundus medical image processing.
+I'm currently working on **robotics and embodied AI** at SmartLab (University of Liverpool), developing gripper-aware vision-language-action policies for adaptive robotic manipulation. My research focuses on building hardware-aware multimodal systems that enable zero-shot transfer to unseen robotic tools.
 
 [Read more about my research →](/research/) 
 

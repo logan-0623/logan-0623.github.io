@@ -6,9 +6,28 @@ permalink: /research/
 
 ## Current Research
 
+### GVLA: Gripper-Aware Vision-Language-Action Policy Learning
+
+*Oct 2025 – Jun 2026*
+**SmartLab, University of Liverpool**
+*Research Assistant*
+
+This project develops a gripper-aware Vision-Language-Action (VLA) policy that enables robots to adapt to different end-effectors without per-gripper fine-tuning.
+
+**Key Contributions:**
+
+* Proposed GVLA with Mixture-of-Experts gripper fusion module for hardware-aware multimodal encoding.
+* Designed a unified text bottleneck architecture for zero-shot transfer to unseen grippers.
+* Demonstrated superior performance on GCA Bench and real-robot manipulation tasks.
+
+**Results & Achievements:**
+* Achieved state-of-the-art performance on gripper-aware manipulation benchmarks
+* Zero-shot transfer capability to unseen robotic tools
+* Research manuscript in preparation
+
 ### PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation
 
-*Dec 2024 – July 2025*
+*Dec 2024 – Jul 2025*
 **MBZUAI**
 *Research Assistant, supervised by Professor Imran Razzak*
 
@@ -61,6 +80,26 @@ Contributed to the development of the methodology.
 **Related Publication:**
 - [Read the full paper](https://link.springer.com/article/10.1186/s12911-024-02595-z)
 
+## Industry Experience
+
+### Multimodal Robotics & Medical Imaging
+*Jun 2025 – Aug 2025*
+**Jifu Medical (AI Algorithm Group), Shenzhen, China**
+*Algorithm Intern*
+
+**Project Highlights:**
+- Benchmarked state-of-the-art robotic action models (ACT, ALOHA) for robot-assisted surgical workflows
+- Built reinforcement learning environments in NVIDIA Isaac Sim for surgical robot simulation
+- Configured and deployed LeRobot SO-101 dual-arm teleoperation system with synchronized dual-camera setup
+- Developed multimodal fusion pipeline combining endoscopy imaging and magnetic positioning for MCCE anomaly detection
+- Documented failure modes and safety considerations for medical device compliance
+
+**Technical Skills Developed:**
+- Robotic teleoperation and control systems
+- Multi-camera synchronization and real-time processing
+- Reinforcement learning for robotic manipulation
+- Medical imaging analysis and sensor fusion
+
 ## Past Research
 
 ### Deep Belief Network-Based Model for Modality Completion
@@ -98,11 +137,11 @@ Contributed to the development of an adaptive attention-based cross-modal repres
 - [ARIF: An Adaptive Attention-Based Cross-Modal Representation Integration Framework](https://link.springer.com/chapter/10.1007/978-3-031-72347-6_1)
 
 ## Research Interests
+- **Robotics & Embodied AI** (Current Focus)
+- Vision-Language-Action Models
 - Multi-modal Learning
 - Medical Image Analysis
-- Deep Learning
-- Machine Learning Interpretability
-- Neural Network Architectures
+- Deep Learning & Neural Network Architectures
 
 ## Research Skills
 - **Programming:** Python, PyTorch, TensorFlow

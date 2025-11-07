@@ -10,11 +10,11 @@ permalink: /publications/
 
 ### 🎯 Conference Papers
 
-#### **MICCAI 2025** (Top-tier Medical AI Conference, CCF-B)
+#### **BIBM 2025** (IEEE International Conference on Bioinformatics and Biomedicine)
 **PG-SAM: Prior-Guided SAM with Medical for Multi-organ Segmentation**
-- *Yiheng Zhong\*, **Zihong Luo**\*, Chengzhi Liu, Feilong Tang, Zelin Peng, Ming Hu, Yingzhen Hu, Jionglong Su, Zongyuan Geand, Imran Razzak*
-- The 28th International Conference on Medical Image Computing and Computer Assisted Intervention
-- 📄 [ArXiv](https://arxiv.org/abs/2503.18227) | 🎓 Status: **Submitted**
+- *Yiheng Zhong\*, **Zihong Luo**\*, Chengzhi Liu, Feilong Tang, Zelin Peng, Ming Hu, Yingzhen Hu, Jionglong Su, Zongyuan Ge, Imran Razzak*
+- IEEE International Conference on Bioinformatics and Biomedicine
+- 📄 [ArXiv](https://arxiv.org/abs/2503.18227) | 🎓 Status: **Accepted**
 
 #### **AAAI 2025** (Top-tier AI Conference, CCF-A)
 **Incomplete Modality Disentangled Representation for Ophthalmic Disease Grading and Diagnosis**

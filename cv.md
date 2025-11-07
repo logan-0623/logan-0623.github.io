@@ -24,10 +24,11 @@ Multi-modal Learning, Medical Image Analysis, Deep Learning, Computer Vision
 - **Multi-modal Learning** focus on medical imaging (OCT & Fundus)
 
 ### Key Achievements
-- Co-first author on MICCAI 2025 paper (PG-SAM)
+- Co-first author on BIBM 2025 paper (PG-SAM)
 - Co-first author on AAAI 2025 paper (Ophthalmic Disease Grading)
 - First author on ICPR 2024 paper (MC-DBN)
-- WorldQuant IQC Certification - United Kingdom Finals
+- **WorldQuant IQC 2025** - UK Finals (Top 6), Top 0.1% of 79,000+ global participants
+- Industry experience in robotic manipulation and medical imaging (Jifu Medical)
 
 ---
 
