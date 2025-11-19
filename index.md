@@ -24,6 +24,7 @@ title: Home Page
 - **Jun 2025**: One paper on **Prior-Guided SAM** accepted to **BIBM 2025**
 - **Jan 2025**: Advanced to **WorldQuant IQC 2025 UK Finals** (Top 6, Top 0.1% of 79,000+ participants)
 - **Dec 2024**: One paper on **Disentangled Representation** accepted to **AAAI 2025**! 🎉
+
 ---
 
 ## 🎯 Seeking Opportunities
