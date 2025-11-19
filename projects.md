@@ -4,59 +4,76 @@ title: Projects
 permalink: /projects/
 ---
 
-## Projects & Reproductions
+## 🤖 Robotics & Engineering Projects
 
-Here are some projects I've worked on and research implementations I've reproduced.
+> Showcasing hands-on capabilities in robotic systems, control algorithms, and hardware-software integration.
 
-### LeRobot SO101 Robotic Arm Control
-*2025*
-- **Description:** Implementation and reproduction of LeRobot framework for SO101 dual-arm manipulation
-- **Technologies:** Python, LeRobot, OpenCV, HuggingFace, PyTorch
-- **Key Features:** 
-  - Dual-camera video synchronization
-  - Teleoperation with leader-follower configuration
-  - Dataset recording and upload to HuggingFace Hub
-  - Real-time robotic arm control and data collection
-- **Hardware:** SO101 robotic arms (leader & follower), dual cameras (front & wrist)
-- **Achievements:** Successfully recorded 50 test episodes with synchronized dual-camera data
-- [Project Document →](/lerobot-so101/)
-- [View Documentation →](https://huggingface.co/docs/lerobot/so101) 
-- [GitHub →](https://github.com/huggingface/lerobot)
+---
 
+## Featured Projects
 
+### **LeRobot SO101: Real-World Robotic Manipulation**
+*Winter 2024-2025 | Jifu Medical Internship*
 
-### Wheel-legged Robot Reproduction Project
-*2025*
-- **Description:** Mathematical modeling and control algorithm implementation for wheel-legged robot locomotion
-- **Technologies:** C++, Arduino, robot kinematics, control theory, PID control
-- **Key Features:**
-  - Forward and inverse kinematics mathematical modeling
-  - Real-time control loop implementation in C++
-  - Dual-mode balance control (wheel + leg stabilization)
-  - IMU-based attitude feedback control
-  - Teleoperation with RC controller integration
-- **Hardware:** wheel-legged platform, IMU sensors, servo motors, BLDC motors
-- **Technical Achievements:**
-  - Implemented complete inverse kinematics solver for 5-link leg mechanism
-  - Developed cascaded PID control for wheel balancing (speed + angle loops)
-  - Real-time sensor fusion and multi-modal control integration
-  - Achieved stable teleoperated locomotion with attitude stabilization
-- **Learning Focus:**
-  - Robot kinematics mathematical foundations
-  - Control algorithm design and implementation
-  - Real-time embedded systems programming
-  - Sensor fusion and feedback control systems
-- [Project Document →](/robotics/wheel-legged-robot/)
-- [Gitee →](https://gitee.com/StackForce/bipedal_wheeled_robot)
+**🎥 Demo Video/GIF:** *[Add your robot demo here]*
 
+Reproduced **state-of-the-art imitation learning algorithms (ACT, ALOHA)** on real hardware from scratch. Built a complete teleoperation pipeline with dual-camera synchronization for robotic manipulation tasks.
 
+**What I Built:**
+- ✅ Dual-arm leader-follower teleoperation system
+- ✅ Multi-camera synchronization (front + wrist views)
+- ✅ Data collection pipeline → HuggingFace Dataset
+- ✅ Real-time robotic control with 30Hz control loop
+- ✅ Collected **50+ demonstration episodes** for policy learning
 
-### Academic Website
-*2024*
-- **Description:** Personal academic homepage with interactive features
-- **Technologies:** Jekyll, HTML/CSS, JavaScript
-- **Key Features:** Parallax effects, theme switching, responsive design
-- [Live Demo →](https://logan-0623.github.io) | [Source Code →](https://github.com/logan-0623/logan-0623.github.io)
+**Technical Highlights:**
+- Integrated **LeRobot framework** with SO101 arms
+- Implemented **camera calibration** and synchronized recording
+- Built **dataset preprocessing** for policy training
+- Hands-on experience with **real-robot deployment**
+
+**Tech Stack:** Python · PyTorch · LeRobot · OpenCV · HuggingFace · ROS
+
+📄 [Project Details →](/lerobot-so101/) | 📦 [LeRobot Docs](https://huggingface.co/docs/lerobot/so101) | 💻 [GitHub](https://github.com/huggingface/lerobot)
+
+---
+
+### **Wheel-Legged Robot: From Math to Motion**
+*Winter 2024-2025 | Independent Project*
+
+**🎥 Demo Video/GIF:** *[Add your self-balancing robot demo here]*
+
+Built a **self-balancing wheel-legged robot from scratch** — from mathematical modeling to real-world deployment. This project demonstrates strong foundations in **robot kinematics, control theory, and embedded systems**.
+
+**What I Built:**
+- ✅ Complete **inverse kinematics solver** for 5-link leg mechanism
+- ✅ **Cascaded PID control** (speed loop + angle loop) for wheel balancing
+- ✅ **IMU-based attitude estimation** and sensor fusion
+- ✅ Real-time control implementation in **C++/Arduino**
+- ✅ RC teleoperation with **multi-modal control** (wheel + leg stabilization)
+
+**Why This Matters:**
+- Proves understanding of **robot kinematics** (forward/inverse)
+- Shows mastery of **PID control** and feedback systems
+- Demonstrates **hardware-software integration** skills
+- Evidence of **hands-on engineering ability** (not just Python!)
+
+**Tech Stack:** C++ · Arduino · ESP32 · PID Control · IMU · Servo Motors · BLDC
+
+📄 [Project Details →](/robotics/wheel-legged-robot/) | 💻 [Source Code](https://gitee.com/StackForce/bipedal_wheeled_robot)
+
+---
+
+## Additional Projects
+
+### **Academic Website with Interactive Features**
+*Fall 2024*
+
+Personal homepage built with **Jekyll** featuring parallax effects, theme switching, and responsive design.
+
+**Tech Stack:** Jekyll · HTML/CSS · JavaScript · GitHub Pages
+
+🌐 [Live Site](https://logan-0623.github.io) | 💻 [Source](https://github.com/logan-0623/logan-0623.github.io)
 
 ## Coming Soon
 More project reproductions and implementations are in progress...

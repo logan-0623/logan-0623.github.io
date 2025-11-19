@@ -50,6 +50,22 @@ I'm currently working on **robotics and embodied AI** at SmartLab (University of
 
 
 
+## 🛠️ Tech Stack
+
+### **Robotics**
+ROS2 · Isaac Sim · MuJoCo · LeRobot · URDF · Teleoperation · Robot Kinematics
+
+### **AI & Machine Learning**
+PyTorch · HuggingFace · Transformers · Vision-Language Models · Reinforcement Learning · Multi-modal Learning
+
+### **Hardware & Embedded Systems**
+Arduino · Raspberry Pi · ESP32 · C++ · PID Control · Sensor Fusion · IMU
+
+### **Development Tools**
+Python · Git · Docker · Linux · Jupyter · OpenCV
+
+---
+
 ## Contact
 Feel free to reach out for research collaboration or academic discussions:
 - Email: [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk)
