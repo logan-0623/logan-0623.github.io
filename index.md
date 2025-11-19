@@ -18,9 +18,12 @@ My research currently focuses on **robotics and embodied intelligence**, with ex
 ### Recent Achievements
 
 ✨ **6 publications** at top-tier venues (BIBM, AAAI, ICANN, ICPR, BMC Journal)
+
 🤖 **Research Assistant** at SmartLab (2025-Present)
+
 🏆 **WorldQuant IQC 2025** - UK Finals (Top 6), Top 0.1% of 79,000+ participants
-🎓 **GPA 3.8/4.0** at Xi'an Jiaotong-Liverpool University
+
+🎓 **GPA 3.87/4.0** at Xi'an Jiaotong-Liverpool University
 
 ---
 
