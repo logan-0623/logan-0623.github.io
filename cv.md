@@ -11,8 +11,7 @@ permalink: /cv/
 **Zihong Luo** | Computing Science Student
 📧 [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk) | 🔗 [GitHub](https://github.com/logan-0623)
 
-- 📄 [Download PDF (Short Version)](/CS_Zihongluo_short.pdf)
-- 📄 [Download PDF (Long Version)](/CS_Zihongluo.pdf)
+- 📄 [Download PDF](/CS_Zihongluo.pdf)
 
 ### Research Interests
 Multi-modal Learning, Medical Image Analysis, Deep Learning, Computer Vision
