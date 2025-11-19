@@ -15,13 +15,14 @@ permalink: /about/
 
 - **University of Liverpool (UOL)**
   - Bachelor of Computing Science
+  - GPA: 3.87/4.0
   - Expected June 2026
   - Liverpool, UK
 
 - **Xi'an Jiaotong-Liverpool University (XJTLU)**
   - Bachelor of Science in Information and Computing Science
-  - GPA: 3.8/4.0
-  - Expected June 2024
+  - GPA: 3.87/4.0
+  - Expected June 2026
   - Suzhou, China
 
 ## Honors & Awards

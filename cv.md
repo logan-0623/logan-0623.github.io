@@ -4,9 +4,9 @@ title: CV
 permalink: /cv/
 ---
 
-# Curriculum Vitae
+<!-- # Curriculum Vitae -->
 
-## Quick Summary
+<!-- ## Quick Summary -->
 
 **Zihong Luo** | Computing Science Student
 📧 [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk) | 🔗 [GitHub](https://github.com/logan-0623)
@@ -15,8 +15,8 @@ permalink: /cv/
 Multi-modal Learning, Medical Image Analysis, Deep Learning, Computer Vision
 
 ### Education
-- **University of Liverpool** - BEng Computing Science (Expected 2026)
-- **Xi'an Jiaotong-Liverpool University** - BSc Information and Computing Science, GPA: 3.8/4.0 (Expected 2024)
+- **University of Liverpool** - BSc Computing Science, GPA: 3.87/4.0 (Expected 2026)
+- **Xi'an Jiaotong-Liverpool University** - BSc Information and Computing Science, GPA: 3.87/4.0 (Expected 2026)
 
 ### Research Highlights
 - **5 Publications** (MICCAI, AAAI, ICANN, ICPR x2, BMC Journal)
@@ -25,7 +25,7 @@ Multi-modal Learning, Medical Image Analysis, Deep Learning, Computer Vision
 
 ### Key Achievements
 - Co-first author on BIBM 2025 paper (PG-SAM)
-- Co-first author on AAAI 2025 paper (Ophthalmic Disease Grading)
+- Co-author on AAAI 2025 paper (Ophthalmic Disease Grading)
 - First author on ICPR 2024 paper (MC-DBN)
 - **WorldQuant IQC 2025** - UK Finals (Top 6), Top 0.1% of 79,000+ global participants
 - Industry experience in robotic manipulation and medical imaging (Jifu Medical)
