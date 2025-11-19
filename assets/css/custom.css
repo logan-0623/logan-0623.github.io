@@ -55,7 +55,7 @@ body {
     width: 110%;
     height: 110%;
     object-fit: cover;
-    opacity: 0.15; 
+    opacity: 0.15;
     pointer-events: none;
     will-change: transform;
     transition: opacity var(--transition-normal);
@@ -67,16 +67,16 @@ body {
 
 .parallax-img-bg:nth-child(2) {
     z-index: 2;
-    opacity: 0.1; 
+    opacity: 0.1;
 }
 
 .dark-theme .parallax-img-bg {
     filter: brightness(0.7) grayscale(0.3);
-    opacity: 0.3; /* 降低暗色主题透明度，原来是 0.28 */
+    opacity: 0.3;
 }
 
 .dark-theme .parallax-img-bg:nth-child(2) {
-    opacity: 0.2; /* 降低暗色主题透明度，原来是 0.2 */
+    opacity: 0.2;
 }
 
 /* ---------- 鼠标交互效果 ---------- */
