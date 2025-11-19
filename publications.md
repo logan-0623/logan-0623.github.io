@@ -67,17 +67,10 @@ permalink: /publications/
 
 **\* Equal contribution**
 
----
-
-## Research Statistics
-- **Total Publications:** 6 papers
-- **First/Co-first Author:** 4 papers
-- **Top-tier Conferences:** BIBM, AAAI (CCF-A), ICANN, ICPR
-- **Research Expertise:** Multi-modal Learning · Representation Learning · Robust AI Systems
 
 ---
 
 ## 🔗 Connect with My Research
-- 📄 [Google Scholar](#) - Full publication list
+- 📄 [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=8SLtiQgAAAAJ&view_op=list_works&authuser=1&gmla=AKzYXQ1L5pBbS_4f0os64QpqQeiBfopt2hbD7zfZHei_uuz3OS4Oz7sMa1vz4xnMsEXGX4wMRhp49fNS00ZliVKgiQjXQOmCNXlBREs9OnpRLYZvVFM)  - Full publication list
 - 💻 [GitHub](https://github.com/logan-0623) - Code repositories
 - 📧 [Email](mailto:Z.Luo21@student.liverpool.ac.uk) - Collaboration inquiries 

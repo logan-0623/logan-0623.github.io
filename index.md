@@ -11,14 +11,14 @@ title: Home Page
   Currently working on VLA policies and Sim-to-Real transfer at <strong>SmartLab</strong>
 </div>
 
-**📧 Email:** [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk)
+**Email:** [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk)
 
-**🔗 Links:** 
+**Links:** 
 [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=8SLtiQgAAAAJ&view_op=list_works&authuser=1&gmla=AKzYXQ1L5pBbS_4f0os64QpqQeiBfopt2hbD7zfZHei_uuz3OS4Oz7sMa1vz4xnMsEXGX4wMRhp49fNS00ZliVKgiQjXQOmCNXlBREs9OnpRLYZvVFM) · [GitHub](https://github.com/logan-0623) ·[CV](/cv/) 
 
 ---
 
-## 📰 News
+## News
 - **Sep 2025**: Joined SmartLab working on **gripper-aware VLA policies** for robotic manipulation
 - **Aug 2025**: Completed research internship at **Jifu Medical** (Robotics Algorithm Team)
 - **Jun 2025**: One paper on **Prior-Guided SAM** accepted to **BIBM 2025**
@@ -27,7 +27,7 @@ title: Home Page
 
 ---
 
-## 🎯 Seeking Opportunities
+## Seeking Opportunities
 
 I am actively seeking **Fall 2026 Master programs** in **Robotics/ME/ECE**, with interests in:
 - Vision-Language-Action Models & Embodied Intelligence
@@ -38,14 +38,14 @@ I am actively seeking **Fall 2026 Master programs** in **Robotics/ME/ECE**, with
 
 ---
 
-## 🔬 Featured Research
+## Featured Research
 
 ### **GVLA: Gripper-Aware Vision-Language-Action Policy**
 *SmartLab, University of Liverpool (Oct 2024 - Present)*
 
 A gripper-aware VLA policy enabling **zero-shot transfer** across end-effectors. Built hardware-aware multimodal systems using Mixture-of-Experts architecture for robotic manipulation.
 
-**🎥 Demo coming soon** | [Project Details →](/research/#gvla-gripper-aware-vision-language-action-policy-learning)
+**Demo coming soon** | [Project Details →](/research/#gvla-gripper-aware-vision-language-action-policy-learning)
 
 ---
 
@@ -67,7 +67,7 @@ Prior-guided SAM framework leveraging medical LLMs to align high-level textual p
 
 ---
 
-## 🛠️ Engineering Projects
+## Engineering Projects
 
 ### **LeRobot Implementation** | [Details →](/lerobot-so101/)
 Reproduced **SOTA algorithms (ACT/ALOHA)** on real hardware from scratch. Built dual-arm teleoperation system with synchronized dual-camera setup and collected 50+ demonstration episodes.
@@ -86,7 +86,7 @@ Built a **self-balancing robot** from scratch using ESP32 and PID control. Imple
 ## 📄 Quick Links
 
 - [About Me →](/about/) - Academic journey and background
-- [Publications →](/publications/) - Full publication list (6 papers)
+- [Publications →](/publications/) - Full publication list
 - [All Projects →](/projects/) - Complete project portfolio
 - [Blog →](/blog/) - Research insights and technical posts
 - [Download CV →](/cv/) - Complete academic profile
