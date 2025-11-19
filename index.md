@@ -12,17 +12,18 @@ title: Home Page
 </div>
 
 **📧 Email:** [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk)
-**🔗 Links:** [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=8SLtiQgAAAAJ&view_op=list_works&authuser=1&gmla=AKzYXQ1L5pBbS_4f0os64QpqQeiBfopt2hbD7zfZHei_uuz3OS4Oz7sMa1vz4xnMsEXGX4wMRhp49fNS00ZliVKgiQjXQOmCNXlBREs9OnpRLYZvVFM) · [GitHub](https://github.com/logan-0623) · [CV](/cv/) 
+
+**🔗 Links:** 
+[Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=8SLtiQgAAAAJ&view_op=list_works&authuser=1&gmla=AKzYXQ1L5pBbS_4f0os64QpqQeiBfopt2hbD7zfZHei_uuz3OS4Oz7sMa1vz4xnMsEXGX4wMRhp49fNS00ZliVKgiQjXQOmCNXlBREs9OnpRLYZvVFM) · [GitHub](https://github.com/logan-0623) ·[CV](/cv/) 
+
 ---
 
 ## 📰 News
-
+- **Sep 2025**: Joined SmartLab working on **gripper-aware VLA policies** for robotic manipulation
+- **Aug 2025**: Completed research internship at **Jifu Medical** (Robotics Algorithm Team)
+- **Jun 2025**: One paper on **Prior-Guided SAM** accepted to **BIBM 2025**
+- **Jan 2025**: Advanced to **WorldQuant IQC 2025 UK Finals** (Top 6, Top 0.1% of 79,000+ participants)
 - **Dec 2024**: One paper on **Disentangled Representation** accepted to **AAAI 2025**! 🎉
-- **Oct 2024**: Joined SmartLab working on **gripper-aware VLA policies** for robotic manipulation
-- **Sep 2024**: One paper on **Prior-Guided SAM** accepted to **BIBM 2025**
-- **Aug 2024**: Completed research internship at **Jifu Medical** (Robotics Algorithm Team)
-- **Jun 2024**: Advanced to **WorldQuant IQC 2025 UK Finals** (Top 6, Top 0.1% of 79,000+ participants)
-
 ---
 
 ## 🎯 Seeking Opportunities
