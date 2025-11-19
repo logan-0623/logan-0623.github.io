@@ -8,7 +8,7 @@ title: Home Page
 <div style="margin-bottom: 1.5em; line-height: 1.8;">
   <strong>Undergraduate Researcher</strong> @ UoL / XJTLU<br>
   <strong>Research Interests:</strong> Embodied AI · Multimodal Perception · Robotic Manipulation<br>
-  Currently working on VLA policies and Sim-to-Real transfer at <strong>SmartLab</strong>
+  Currently working on VLA policies and Sim-to-Real transfer at <strong><a href="https://smartlab.csc.liv.ac.uk/">SmartLab</a></strong>
 </div>
 
 **Email:** [Z.Luo21@student.liverpool.ac.uk](mailto:Z.Luo21@student.liverpool.ac.uk)
