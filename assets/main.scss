@@ -1,9 +1,0 @@
-@import "minima";
-
-// 自定义变量
-$grey-color-light: #eee;
-
-// 覆盖默认样式
-pre, code {
-  background-color: scale-color($grey-color-light, $lightness: 6%);
-} 

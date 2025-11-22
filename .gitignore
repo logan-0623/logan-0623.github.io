@@ -1,5 +1,19 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+
+# IDE files
+.idea/
+.vscode/
+
+# Jekyll (backup)
+jekyll_backup/
