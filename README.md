@@ -47,6 +47,7 @@ Built with React, TypeScript, and Vite. Styled with Tailwind CSS.
 
 3. 提交并推送更改：
    ```bash
+   git status
    git add -A
    git commit -m "Update site"
    git push
