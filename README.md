@@ -37,7 +37,7 @@ Built with React, TypeScript, and Vite. Styled with Tailwind CSS.
 
 1. 回到根目录：
    ```bash
-   cd ..
+   cd ../
    ```
 
 2. 运行部署脚本：
