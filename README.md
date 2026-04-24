@@ -4,7 +4,7 @@ A modern, interactive portfolio website showcasing my research and projects in E
 
 ## Live Site
 
-Visit: [https://loganluo.github.io/Loganweb/](https://loganluo.github.io/Loganweb/)
+Visit: [https://loganluo.github.io/](https://logan-0623.github.io/)
 
 ## Tech Stack
 
