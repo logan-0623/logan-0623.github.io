@@ -1,6 +1,6 @@
-# Zihong Luo's Portfolio
+# Zihong Luo's Public Portfolio
 
-A modern, interactive portfolio website showcasing my research and projects in Embodied Intelligence and Robotics.
+A public academic portfolio focused on computer science, machine learning, computer vision, medical image analysis, and data analysis.
 
 ## Live Site
 
@@ -8,60 +8,43 @@ Visit: [https://loganluo.github.io/](https://logan-0623.github.io/)
 
 ## Tech Stack
 
-Built with React, TypeScript, and Vite. Styled with Tailwind CSS.
+The current published pages are static HTML. The original source workflow used React, TypeScript, Vite, and Tailwind CSS.
 
 ## Development Workflow
 
-### 本地开发
+### 本地修改
 
-1. 进入开发目录：
-   ```bash
-   cd dev
-   ```
+1. Edit the public static pages in the repository root:
+   - `index.html`
+   - `academic.html`
 
-2. 安装依赖（首次）：
+2. Install dependencies if you want to run the Vite build check:
    ```bash
    npm install
    ```
 
-3. 启动开发服务器：
+3. Run the build check:
    ```bash
-   npm run dev
+   npm run build
    ```
 
-4. 在浏览器中打开 `http://localhost:3000`
+4. The root `index.html` and `academic.html` files are the published site files.
 
 ### 部署更新
 
-当你在 `dev/` 文件夹中完成源代码优化后：
-
-1. 回到根目录：
-   ```bash
-   cd ../
-   ```
-
-2. 运行部署脚本：
+提交并推送更改：
    ```bash
    ./deploy.sh
-   ```
-
-3. 提交并推送更改：
-   ```bash
    git status
    git add -A
    git commit -m "Update site"
    git push
    ```
 
-部署脚本会自动：
-- 构建项目（`npm run build`）
-- 删除旧的静态文件
-- 复制新构建的文件到根目录
-
 ## 文件结构
 
-- `dev/` - 源代码（React/TypeScript，不在 Git 中）
-- `assets/` - 构建后的静态资源
-- `index.html` - 构建后的入口文件
-- `jekyll_backup/` - 旧的 Jekyll 网站备份
-- `deploy.sh` - 自动化部署脚本
+- `index.html` - public static profile page
+- `academic.html` - redirect page for the academic profile URL
+- `CS_Zihongluo.pdf` - redacted public CV placeholder
+- `favicon.svg` - site icon
+- `deploy.sh` - static build check and deployment checklist
