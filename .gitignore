@@ -1,6 +1,9 @@
 # Development folder (source code)
 dev/
 
+# Local brainstorming artifacts
+.superpowers/
+
 # Node modules
 node_modules/
 

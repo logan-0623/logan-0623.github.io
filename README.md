@@ -30,6 +30,15 @@ The current published pages are static HTML. The original source workflow used R
 
 4. The root `index.html` and `academic.html` files are the published site files.
 
+
+要是想看本地网站
+   ```bash
+   cd dev
+   
+   npm run dev
+   ```
+
+
 ### 部署更新
 
 提交并推送更改：
