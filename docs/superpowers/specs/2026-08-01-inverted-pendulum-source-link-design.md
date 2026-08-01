@@ -2,7 +2,7 @@
 
 ## Goal
 
-Add a discoverable source-code link to the inverted-pendulum project introduction on `projects.html` without changing the interactive demonstration or other project content.
+Add a discoverable source-code link to the inverted-pendulum project introduction in the private development source without changing the interactive demonstration or other project content.
 
 ## Design
 
@@ -12,8 +12,8 @@ The link will use the project's existing typography, color, spacing, and hover c
 
 ## Scope
 
-Only the inverted-pendulum project introduction and its generated page asset will change. The simulation, navigation, other project sections, and overall layout remain unchanged.
+Only the inverted-pendulum project introduction in `dev/components/ProjectsPage.tsx` will change. The simulation, navigation, other project sections, generated files in the repository root, and overall layout remain unchanged.
 
 ## Verification
 
-Before implementation, add a focused automated check that fails while the repository URL is absent from the projects page bundle. After implementation, verify that the check passes, the production build succeeds, and the rendered link has the approved label, destination, new-tab behavior, and security attributes.
+Before implementation, add a focused automated check that fails while the repository URL is absent from the projects page source. After implementation, verify that the development test suite and production build pass and that the source link has the approved label, destination, new-tab behavior, and security attributes. Do not run `deploy.sh`; the user will publish the generated output separately.
