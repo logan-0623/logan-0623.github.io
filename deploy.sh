@@ -24,6 +24,7 @@ echo "Publishing static build output to the repository root..."
 published_files=(
   index.html
   academic.html
+  projects.html
   CS_Zihongluo.pdf
   favicon.svg
   og-image.jpg
@@ -36,10 +37,11 @@ published_dirs=(
 )
 
 for file in "${published_files[@]}"; do
-  cp "$dist_dir/$file" "$repo_root/$file"
+  cp -f "$dist_dir/$file" "$repo_root/$file"
 done
 
 for dir in "${published_dirs[@]}"; do
+  mkdir -p "$dist_dir/$dir"
   mkdir -p "$repo_root/$dir"
   rsync -a --delete "$dist_dir/$dir/" "$repo_root/$dir/"
 done
