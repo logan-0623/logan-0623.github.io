@@ -22,9 +22,9 @@ The first link target remains upright. The second link target is upright for `up
 
 Keep the public controller phase as `retarget` throughout a successful transition. For `up-up → up-down`, use target-aware gain scheduling within `doubleRetargetForce`:
 
-1. Release the second link from upright with bounded energy-shaping authority while preserving first-link feedback.
-2. As the second link enters the lower half-plane, reduce pumping and increase velocity damping so excess kinetic energy is removed before the downward target.
-3. Near the target, blend toward the existing local `up-down` balance feedback. Enter `balance` only when both angle and angular-speed capture thresholds are satisfied.
+1. Release the second link from upright with bounded target-energy feedback while preserving first-link feedback.
+2. Scale the energy gain and correction authority continuously from the dimensionless `L₂/L₁` ratio so short links receive lower sustained gain and more bounded control authority than medium and long links.
+3. Near the target, blend toward the existing local `up-down` balance feedback. Enter `balance` only when both angle and angular-speed capture thresholds are satisfied. The target-energy feedback must measurably reduce excess second-link energy during fast lower-half passes in either direction.
 
 Retain the existing safety fallback to `settling` when the first link is genuinely lost. Do not reset simulation state during a target change.
 
@@ -45,6 +45,6 @@ Do not edit the published root assets, run `deploy.sh`, commit generated output,
 
 ## Verification
 
-Add a failing regression test for both the default `0.3 m` and longer `0.4 m` second links. Starting from a balanced `up-up` state, retarget to `up-down` and require that the controller reaches `balance` without entering `settling`, `kick`, or `swing-up`; the first-link error remains below the existing safety boundary; and both final link angles and angular speeds lie within the capture region.
+Add a failing regression test for the shortest `0.15 m`, default `0.3 m`, and longest `0.4 m` second links. Starting from a balanced `up-up` state, retarget to `up-down` and require that the controller reaches `balance` without entering `settling`, `kick`, or `swing-up`; the first-link error remains below the existing safety boundary; and both final link angles and angular speeds lie within the capture region. Add a deterministic fast lower-half test that verifies excess second-link energy decreases while the first link remains upright.
 
 Add deterministic diagnostic tests proving that a stationary downward second link is green-ready for `up-down`, while a horizontal link and a near-down link with high angular speed are not. Run the complete development test suite and Vite production build. Stop before deployment.
