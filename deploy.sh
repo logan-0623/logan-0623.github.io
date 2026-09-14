@@ -32,6 +32,7 @@ published_files=(
 
 published_dirs=(
   assets
+  diagrams
   models
   research
 )
