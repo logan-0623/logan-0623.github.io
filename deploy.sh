@@ -25,6 +25,7 @@ published_files=(
   index.html
   academic.html
   projects.html
+  research.html
   CS_Zihongluo.pdf
   favicon.svg
   og-image.jpg
