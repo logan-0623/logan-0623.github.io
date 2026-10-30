@@ -1,0 +1,1 @@
+import{R as e,j as t,a as r}from"./constants-C-ubEr36.js";import{R as m}from"./ResearchApp-DZb8f3FK.js";import"./SystemStack-C6b6oCSQ.js";import"./FigureFrame-CceZvJOv.js";import"./PublicationRow-CHvb5d9e.js";const o=document.getElementById("root");if(!o)throw new Error("Could not find root element to mount to");e.createRoot(o).render(t.jsx(r.StrictMode,{children:t.jsx(m,{})}));
