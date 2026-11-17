@@ -29,6 +29,8 @@ published_files=(
   CS_Zihongluo.pdf
   favicon.svg
   og-image.jpg
+  robots.txt
+  sitemap.xml
 )
 
 published_dirs=(
